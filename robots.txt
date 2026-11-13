@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/sitemap.xml

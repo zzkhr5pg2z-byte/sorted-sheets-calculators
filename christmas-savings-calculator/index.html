@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christmas Savings Calculator: How Much to Save Each Week</title>
+<meta name="description" content="Free Christmas savings calculator. Type your Christmas budget and what you've saved, and see how much to put away each week to have it all by Christmas Day.">
+<link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/christmas-savings-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How much should I save each week for Christmas?">
+<meta property="og:description" content="Free calculator: your Christmas budget, what you've saved, and the amount to put away each week until Christmas Day.">
+<meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/christmas-savings-calculator/">
+<meta name="theme-color" content="#3f6b47">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Christmas savings calculator",
+ "url": "https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/christmas-savings-calculator/",
+ "description": "Works out how much to save each week to reach a Christmas budget by Christmas Day, from what is still to pay and what has been saved.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
+<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../">All calculators</a></p>
+<h1>How much should I save each week for Christmas?</h1>
+<p class="lead">Type your Christmas budget and what you've already put aside. You'll see how much to save each week so it's all there by Christmas Day (or any date you choose).</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc">
+<form class="inputs" data-calc="christmas" novalidate>
+<fieldset>
+<legend>Your Christmas</legend>
+<div class="field"><label for="budget">Total Christmas budget</label>
+<span class="hint" id="budget-hint">Presents, food, cards, decorations, going out: everything.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="budget" name="budget" value="900" aria-describedby="budget-hint" autocomplete="off"></div></div>
+<div class="field"><label for="spent">Already spent</label>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="spent" name="spent" value="0" autocomplete="off"></div></div>
+<div class="field"><label for="saved">Saved so far</label>
+<span class="hint" id="saved-hint">Put aside for Christmas and not spent yet.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="saved" name="saved" value="150" aria-describedby="saved-hint" autocomplete="off"></div></div>
+</fieldset>
+<fieldset>
+<legend>Dates</legend>
+<div class="pair">
+<div class="field"><label for="asOf">Starting from</label><input type="date" id="asOf" name="asOf"></div>
+<div class="field"><label for="deadline">Have it all by</label><input type="date" id="deadline" name="deadline"></div>
+</div>
+</fieldset>
+<details>
+<summary>Paying some of it by credit card or pay later?</summary>
+<div class="field"><label for="credit">Amount to clear by the same date as well</label>
+<span class="hint" id="credit-hint">So January's bills are covered too.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="credit" name="credit" value="" aria-describedby="credit-hint" autocomplete="off"></div></div>
+</details>
+</form>
+
+<section class="results" data-results="christmas" aria-labelledby="xmas-results">
+<h2 id="xmas-results">Results</h2>
+<p class="big"><span class="label">Save each week</span><span class="value" data-out="perWeek">-</span></p>
+<p class="sentence" aria-live="polite" data-out="sentence"></p>
+<p class="big sage" data-show="credit" hidden><span class="label">Save each week to clear the card too</span><span class="value" data-out="perWeekCredit">-</span></p>
+<dl class="facts">
+<dt>Still to pay</dt><dd data-out="stillToPay">-</dd>
+<dt>Still to find after your savings</dt><dd data-out="toFind">-</dd>
+<dt>Time left</dt><dd data-out="daysTo">-</dd>
+<dt>Weeks to save in</dt><dd data-out="weeks">-</dd>
+<dt>Deadline</dt><dd data-out="deadline">-</dd>
+</dl>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<p>Still to pay is your budget less what you've already spent. Take off what you've saved, and what's left is the amount still to find. That's divided by the number of whole weeks until your deadline.</p>
+<p>Weeks are counted down, not up: 20 days to go is 2 whole weeks, not 3. With less than a week to go it counts as 1 week. The weekly amount is rounded up to the next penny, so you won't come up a few pence short.</p>
+<p>If part of Christmas is going on a credit card or a pay-later plan, add it in the box for that. You'll see a second weekly figure that clears that too, so it's not waiting for you in January.</p>
+<h2>Making it easier</h2>
+<ul>
+<li>Set up a weekly standing order on payday into a separate savings pot, so the money is out of sight.</li>
+<li>Start in January next time: spread over a whole year, the weekly amount is much smaller.</li>
+<li>Write the budget per person before you shop, and keep track of what each present actually cost.</li>
+</ul>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<p>Want to plan every present as well? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4608845140">Christmas Budget &amp; Gift Planner spreadsheet</a> is <span data-etsy-price>£6</span> on Etsy. It has a gift list with a budget for each present, the food shop, cards and spending, and works out the same weekly saving from what's still to buy.</p>
+</aside>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a></p>
+<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>

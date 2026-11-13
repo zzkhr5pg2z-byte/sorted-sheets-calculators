@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inheritance Tax Gifts Calculator: 7-Year Rule and Taper Relief</title>
+<meta name="description" content="Free UK calculator for lifetime gifts and inheritance tax. Applies the £3,000 annual exemption with one year's carry forward, £250 small gifts, wedding gifts and taper relief, and shows when each gift leaves the 7 years.">
+<link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/inheritance-tax-gifts-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Will gifts be free of inheritance tax after 7 years?">
+<meta property="og:description" content="Free UK calculator: annual exemption, small gifts, wedding gifts, taper relief and the 7-year clock for every gift.">
+<meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/inheritance-tax-gifts-calculator/">
+<meta name="theme-color" content="#3f6b47">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Inheritance tax gifts calculator",
+ "url": "https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/inheritance-tax-gifts-calculator/",
+ "description": "Works out which UK lifetime gifts are exempt from inheritance tax, which still count under the 7-year rule, when each one drops out, and the tax with taper relief if the giver died on a chosen date.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
+<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../">All calculators</a></p>
+<h1>Will gifts be free of inheritance tax after 7 years?</h1>
+<p class="lead">List the gifts and pick the exemption each one uses. The calculator applies the <span data-fig="iht.annual_exemption" data-fmt="money0">£3,000</span> annual exemption for you, checks the small gift and wedding limits, shows when each gift leaves the 7 years, and works out any tax with taper relief. Rules for <span data-fig="tax_year">2026/27</span>.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc calc--wide">
+<form class="inputs" data-calc="iht" novalidate>
+<div class="field" style="max-width: 22em">
+<label for="asAt">Work it out as at</label>
+<span class="hint" id="asAt-hint">Today, or the date of death if you're an executor.</span>
+<input type="date" id="asAt" name="asAt" aria-describedby="asAt-hint">
+</div>
+<fieldset>
+<legend>The gifts</legend>
+<p class="hint">One row per gift. A regular standing order can go on one row per tax year: the year's total, dated when the payments started. The example gifts are made up: change them or remove them.</p>
+<div data-rows="gifts"></div>
+<button type="button" class="btn-add" data-add="gifts">Add another gift</button>
+</fieldset>
+<template id="gifts-row">
+<div class="row" data-row>
+<div class="row-head"><h3>Gift <span data-num>1</span></h3><button type="button" class="btn-remove" data-remove>Remove</button></div>
+<div class="row-grid">
+<div class="field"><label data-for="date">Date given</label><input type="date" data-f="date"></div>
+<div class="field"><label data-for="amount">Value</label><div class="money"><span>£</span><input type="text" inputmode="decimal" data-f="amount" autocomplete="off"></div></div>
+<div class="field wide"><label data-for="name">Given to</label><input type="text" data-f="name" autocomplete="off"></div>
+<div class="field wide"><label data-for="type">Exemption it uses</label><select data-f="type"></select></div>
+</div>
+<p class="row-status" data-status></p>
+</div>
+</template>
+</form>
+
+<section class="results" data-results="iht" aria-labelledby="iht-results">
+<h2 id="iht-results">Results as at <span data-out="asAt">today</span></h2>
+<div class="tiles">
+<p class="tile mist"><span class="label">Given away in total</span><span class="value" data-out="totalGiven">-</span></p>
+<p class="tile sage"><span class="label">Exempt straight away</span><span class="value" data-out="exemptNow">-</span></p>
+<p class="tile"><span class="label">Still inside the 7 years</span><span class="value" data-out="inside">-</span></p>
+<p class="tile sage"><span class="label">Nil-rate band left</span><span class="value" data-out="nrbLeft">-</span></p>
+<p class="tile mist"><span class="label">Next gift leaves the 7 years</span><span class="value" data-out="nextOut">-</span></p>
+<p class="tile blush"><span class="label">Tax on the gifts if they died that day</span><span class="value" data-out="tax">-</span></p>
+</div>
+<div class="table-wrap" data-show="allowances">
+<table>
+<caption>The <span data-fig="iht.annual_exemption" data-fmt="money0">£3,000</span> annual exemption, year by year</caption>
+<thead><tr><th scope="col">Tax year</th><th scope="col">Gifts needing it</th><th scope="col">Available (with last year's)</th><th scope="col">Used</th><th scope="col">Carried to next year</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+<p class="hint">What each gift uses is shown under it. Only tax years with gifts are listed.</p>
+</section>
+</div>
+
+<div class="prose">
+<h2>How the 7-year rule works</h2>
+<p>Most gifts to people are "potentially exempt". If the person who gave them lives for 7 more years, there's no inheritance tax on them. If they die within 7 years, the gifts are added up in date order and use the <span data-fig="iht.nil_rate_band" data-fmt="money0">£325,000</span> nil-rate band first. Tax at <span data-fig="iht.rate" data-fmt="pct">40%</span> is only due on gifts above it, and less for gifts made 3 to 7 years before the death:</p>
+<table>
+<caption>Taper relief</caption>
+<thead><tr><th scope="col">Years between gift and death</th><th scope="col">Rate of tax on the gift</th></tr></thead>
+<tbody>
+<tr><th scope="row">Less than 3</th><td><span data-fig="iht.rate" data-fmt="pct">40%</span></td></tr>
+<tr><th scope="row">3 to 4</th><td><span data-fig="iht.taper.0.rate" data-fmt="pct">32%</span></td></tr>
+<tr><th scope="row">4 to 5</th><td><span data-fig="iht.taper.1.rate" data-fmt="pct">24%</span></td></tr>
+<tr><th scope="row">5 to 6</th><td><span data-fig="iht.taper.2.rate" data-fmt="pct">16%</span></td></tr>
+<tr><th scope="row">6 to 7</th><td><span data-fig="iht.taper.3.rate" data-fmt="pct">8%</span></td></tr>
+<tr><th scope="row">7 or more</th><td>0%</td></tr>
+</tbody>
+</table>
+
+<h2>Gifts that are exempt straight away</h2>
+<ul>
+<li><strong>Annual exemption:</strong> <span data-fig="iht.annual_exemption" data-fmt="money0">£3,000</span> of gifts each tax year (6 April to 5 April). Any part not used can be carried forward to the next tax year only. The calculator uses it on the earliest gifts in each tax year that no other exemption covers, and uses this year's allowance before last year's leftover.</li>
+<li><strong>Small gifts:</strong> gifts of up to <span data-fig="iht.small_gift" data-fmt="money0">£250</span> per person per tax year, as long as you haven't used another allowance on the same person. If gifts to one person add up to more than that in a tax year, the calculator doesn't count any of them as small gifts (it matches people by the name you type).</li>
+<li><strong>Wedding or civil partnership gifts:</strong> up to <span data-fig="iht.wedding_child" data-fmt="money0">£5,000</span> to a child, <span data-fig="iht.wedding_grandchild" data-fmt="money0">£2,500</span> to a grandchild or great-grandchild, <span data-fig="iht.wedding_other" data-fmt="money0">£1,000</span> to anyone else. Anything over the limit is treated like any other gift.</li>
+<li><strong>Husband, wife or civil partner, and charities:</strong> exempt with no limit.</li>
+<li><strong>Regular gifts from surplus income:</strong> exempt with no limit, but only if they're regular, paid from income rather than savings, and leave enough to live on as normal. Executors have to show this to HMRC, so keep records each year.</li>
+</ul>
+
+<h2>What it leaves out</h2>
+<ul>
+<li>The rest of the estate, the residence nil-rate band, and any nil-rate band passed on by a husband, wife or civil partner. This is about the gifts.</li>
+<li>Gifts into most trusts, which are taxed differently and can be taxed straight away.</li>
+<li>Gifts with strings attached, like giving away a house but still living in it rent-free. These can still count as part of the estate.</li>
+<li>Business Relief and Agricultural Relief.</li>
+</ul>
+<p class="note">This is a record-keeping and planning tool, not tax or legal advice. For large gifts, trusts or business assets, speak to a solicitor or tax adviser.</p>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<p>Want to keep a full record? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4589833979">Inheritance Tax Gift Record spreadsheet</a> is <span data-etsy-price>£15</span> on Etsy. It holds every gift with notes, applies the same rules for you, and has an income and spending table laid out like HMRC form IHT403 for regular gifts from income.</p>
+</aside>
+
+<section class="prose" aria-labelledby="checked">
+<h2 id="checked">Figures checked: <span data-fig="checked_label">November 2026</span></h2>
+<p class="sources">Source:</p>
+<ul class="sources" data-sources="iht_gifts">
+<li><a href="https://www.gov.uk/inheritance-tax/gifts">How Inheritance Tax works: thresholds, rules and allowances</a> (gov.uk): £325,000 threshold, 40% rate, £3,000 annual exemption (one year carry forward), £250 small gifts, wedding gifts £5,000 / £2,500 / £1,000, taper 32% / 24% / 16% / 8%.</li>
+</ul>
+</section>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a></p>
+<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>

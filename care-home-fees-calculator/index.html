@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Care Home Fees Calculator UK: How Long Will Savings Last?</title>
+<meta name="description" content="Free care home fees calculator for 2026/27. See how long savings will last, when they reach the council's upper limit and when to ask for a financial assessment. England, Scotland, Wales and Northern Ireland.">
+<link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/care-home-fees-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How long will savings last in a care home?">
+<meta property="og:description" content="Free UK calculator: how long savings last, when council help should start and when to ask for it. 2026/27 rules.">
+<meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/care-home-fees-calculator/">
+<meta name="theme-color" content="#3f6b47">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Care home fees calculator",
+ "url": "https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/care-home-fees-calculator/",
+ "description": "Works out how long savings will last when paying UK care home fees, when they reach the council's upper capital limit, and when to ask for a financial assessment. 2026/27 rules.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
+<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../">All calculators</a></p>
+<h1>How long will savings last in a care home?</h1>
+<p class="lead">Type in the weekly fee, their income and their savings. You'll see how long they pay the full fee, when their savings should reach the council's upper limit, and when to ask the council for a financial assessment. It uses the 2026/27 rules for England, Scotland, Wales and Northern Ireland.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc">
+<form class="inputs" data-calc="care" novalidate>
+<fieldset>
+<legend>About them</legend>
+<div class="pair">
+<div class="field"><label for="nation">Where they live</label>
+<select id="nation" name="nation"><option>England</option><option>Scotland</option><option>Wales</option><option>Northern Ireland</option></select></div>
+<div class="field"><label for="homeType">Type of care home</label>
+<select id="homeType" name="homeType"><option value="nursing">Nursing home</option><option value="residential">Residential home</option></select></div>
+</div>
+</fieldset>
+<fieldset>
+<legend>Money each week</legend>
+<div class="field"><label for="fee">Care home fee per week</label>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="fee" name="fee" value="1,350" autocomplete="off"></div></div>
+<div class="field"><label for="income">Their income per week</label>
+<span class="hint" id="income-hint">State Pension, other pensions and benefits. For a monthly amount, times by 12 and divide by 52.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="income" name="income" value="480" aria-describedby="income-hint" autocomplete="off"></div></div>
+<div class="field"><label for="costs">Other costs per week</label>
+<span class="hint" id="costs-hint">Things not in the fee: hairdresser, clothes, toiletries, chiropodist.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="costs" name="costs" value="40" aria-describedby="costs-hint" autocomplete="off"></div></div>
+</fieldset>
+<fieldset>
+<legend>Savings</legend>
+<div class="field"><label for="savings">Savings and investments that count</label>
+<span class="hint" id="savings-hint">Only their share of joint accounts. Leave out their home: that's below.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="savings" name="savings" value="75,000" aria-describedby="savings-hint" autocomplete="off"></div></div>
+<div class="pair">
+<div class="field"><label for="rise">Fee rise each year</label>
+<div class="suffix"><input type="text" inputmode="decimal" id="rise" name="rise" value="5" autocomplete="off"><span>%</span></div></div>
+<div class="field"><label for="riseMonth">Fees usually go up in</label>
+<select id="riseMonth" name="riseMonth"><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4" selected>April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></div>
+</div>
+</fieldset>
+<details>
+<summary>Their home, if they own one</summary>
+<p class="hint">Their home is usually ignored for the first <span data-fig="care.property_disregard_weeks">12</span> weeks of a permanent move, and always while a husband, wife or partner, or a relative who is 60 or over or disabled, still lives there.</p>
+<div class="pair">
+<div class="field"><label for="homeValue">Value of their home</label>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="homeValue" name="homeValue" value="" autocomplete="off"></div></div>
+<div class="field"><label for="homeDebt">Mortgage or loans on it</label>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="homeDebt" name="homeDebt" value="" autocomplete="off"></div></div>
+</div>
+<div class="field"><label for="homeFrom">It starts to count on</label>
+<span class="hint" id="homeFrom-hint">Usually 12 weeks after they moved in for good. Leave it empty if it won't count.</span>
+<input type="date" id="homeFrom" name="homeFrom" aria-describedby="homeFrom-hint"></div>
+<p class="hint">Councils take <span data-fig="care.sale_costs" data-fmt="pct">10%</span> off the value for the cost of selling, and take off any mortgage. Home value that would count: <strong data-out="homeCounts">£0.00</strong></p>
+</details>
+</form>
+
+<section class="results" data-results="care" aria-labelledby="care-results">
+<h2 id="care-results">Results</h2>
+<p class="big"><span class="label">Paying the full fee for about</span><span class="value" data-out="headline">-</span></p>
+<p class="sentence" aria-live="polite" data-out="sentence"></p>
+<div class="tiles">
+<p class="tile sage"><span class="label">Council help from about</span><span class="value" data-out="councilFrom">-</span></p>
+<p class="tile mist"><span class="label">Ask for an assessment by</span><span class="value" data-out="askBy">-</span></p>
+<p class="tile"><span class="label">Shortfall per week now</span><span class="value" data-out="shortfall">-</span></p>
+<p class="tile blush"><span class="label">Paid from savings first</span><span class="value" data-out="paidFirst">-</span></p>
+</div>
+<dl class="facts">
+<dt>Upper limit</dt><dd data-out="upper">-</dd>
+<dt>Lower limit</dt><dd data-out="lower">-</dd>
+<dt>NHS or free care payments per week</dt><dd data-out="nhs">-</dd>
+<dt>Fee they pay per week after those</dt><dd data-out="feePays">-</dd>
+</dl>
+<p class="hint" data-show="wales" hidden>Wales has one limit. Above it they pay in full; at or below it the council helps and savings are ignored.</p>
+<div class="table-wrap" data-show="table">
+<table>
+<caption>Year by year, until the council helps</caption>
+<thead><tr><th scope="col">Month</th><th scope="col">Who pays</th><th scope="col">Savings at the start</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+<p class="hint">Estimates only, from this month. Every council does its own financial assessment.</p>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<p>While someone has more than the upper limit in savings, they pay the whole care home fee themselves. Their income (pensions and most benefits) goes towards it, and the rest comes out of savings. That gap is the shortfall.</p>
+<p>The calculator goes month by month for up to 10 years. Each month it takes the shortfall out of their savings, and the fee goes up once a year in the month you pick. When savings fall to the upper limit, the council should start to help. It gives the date, and a date about 3 months before it to ask for a financial assessment, because assessments take time.</p>
+<table>
+<caption>The 2026/27 limits</caption>
+<thead><tr><th scope="col">Where they live</th><th scope="col">Upper limit</th><th scope="col">Lower limit</th></tr></thead>
+<tbody>
+<tr><th scope="row">England</th><td><span data-fig="care.nations.England.upper" data-fmt="money0">£23,250</span></td><td><span data-fig="care.nations.England.lower" data-fmt="money0">£14,250</span></td></tr>
+<tr><th scope="row">Scotland</th><td><span data-fig="care.nations.Scotland.upper" data-fmt="money0">£36,750</span></td><td><span data-fig="care.nations.Scotland.lower" data-fmt="money0">£22,750</span></td></tr>
+<tr><th scope="row">Wales</th><td><span data-fig="care.nations.Wales.upper" data-fmt="money0">£50,000</span></td><td>None (one limit)</td></tr>
+<tr><th scope="row">Northern Ireland</th><td><span data-fig="care.nations.Northern Ireland.upper" data-fmt="money0">£23,250</span></td><td><span data-fig="care.nations.Northern Ireland.lower" data-fmt="money0">£14,250</span></td></tr>
+</tbody>
+</table>
+<p>Between the two limits the council pays part of the fee. It counts £1 a week of "tariff income" for every <span data-fig="care.tariff_step" data-fmt="money0">£250</span> (or part of £250) of savings above the lower limit, and the calculator takes that from savings each month. Below the lower limit, savings are ignored.</p>
+<p>Some of the fee can be paid for them. In England, someone in a nursing home gets NHS-funded nursing care of <span data-fig="care.nations.England.nhs_nursing" data-fmt="money2">£267.68</span> a week, paid to the home. In Scotland, free personal care is <span data-fig="care.nations.Scotland.free_personal_care" data-fmt="money2">£260.30</span> a week, plus <span data-fig="care.nations.Scotland.nhs_nursing" data-fmt="money2">£117.10</span> a week for nursing care in a nursing home, even if they pay for themselves. The calculator takes these off the fee. In Wales and Northern Ireland, ask the home or the council what applies.</p>
+
+<h2>Check this first: NHS Continuing Healthcare</h2>
+<p>If their main need is a health need, the NHS may pay the whole fee, whatever their savings. Ask the hospital, GP or council for an NHS Continuing Healthcare assessment before you plan around paying.</p>
+
+<h2>What it leaves out</h2>
+<ul>
+<li>The council's own assessment. It decides what counts and what they pay, and every council works its figures out itself.</li>
+<li>Interest on savings, and any change in their income.</li>
+<li>Benefits that change: Attendance Allowance usually stops once the council pays towards the fee.</li>
+<li>Top-ups. Once the council helps, it pays its usual rate. If the home costs more, family may be asked to pay the difference.</li>
+<li>Deferred payment agreements, which let the council pay now and be repaid from the home later.</li>
+<li>Giving money or property away to get under the limits. The council can treat it as if they still had it ("deprivation of assets").</li>
+</ul>
+<p class="note">This is a planning tool, not financial or legal advice. For decisions about selling a home or paying for care, speak to the council, an independent financial adviser who specialises in care fees, or Age UK.</p>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<p>Want to keep the full picture? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4589829859">Care Home Fees Runway spreadsheet</a> is <span data-etsy-price>£9</span> on Etsy. It does the same sums month by month for 10 years, with room for every income, cost and savings account, and compares up to 8 care homes.</p>
+</aside>
+
+<section class="prose" aria-labelledby="checked">
+<h2 id="checked">Figures checked: <span data-fig="checked_label">November 2026</span></h2>
+<p class="sources">Sources:</p>
+<ul class="sources" data-sources="lac_2026 nhs_fnc ssi_2026_42 ssi_2026_157 wales_charging nidirect_fees sale_costs">
+<li><a href="https://www.gov.uk/government/publications/social-care-charging-for-local-authorities-2026-to-2027/social-care-charging-for-care-and-support-2026-to-2027-local-authority-circular">Social care: charging for care and support 2026 to 2027 (local authority circular)</a> (gov.uk): England capital limits stay at £23,250 and £14,250 for 2026 to 2027; £1 a week for every £250 between them.</li>
+<li><a href="https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-funded-nursing-care/">NHS-funded nursing care</a> (nhs.uk): From 1 April 2026 the standard rate is £267.68 a week (England).</li>
+<li><a href="https://www.legislation.gov.uk/ssi/2026/42/made">The National Assistance (Assessment of Resources) Amendment (Scotland) Regulations 2026</a> (legislation.gov.uk): Scotland: upper capital limit £36,750 and lower £22,750 from 6 April 2026.</li>
+<li><a href="https://www.legislation.gov.uk/ssi/2026/157/made">The Community Care (Personal Care and Nursing Care) (Scotland) Amendment Regulations 2026</a> (legislation.gov.uk): Scotland: free personal care £260.30 and nursing care £117.10 a week from 1 April 2026.</li>
+<li><a href="https://www.gov.wales/charging-social-care">Charging for social care</a> (gov.wales): Capital over £50,000: may pay the full cost of residential care.</li>
+<li><a href="https://www.nidirect.gov.uk/articles/paying-your-care-home-fees">Paying your care home fees</a> (nidirect.gov.uk): Northern Ireland: over £23,250 pays in full; £1 a week for every £250 between £14,250 and £23,250; home counts 12 weeks after a permanent move.</li>
+<li><a href="https://www.legislation.gov.uk/uksi/2014/2672/regulation/20">The Care and Support (Charging and Assessment of Resources) Regulations 2014, regulation 20</a> (legislation.gov.uk): Capital is valued less 10% where there would be expenses of sale, and less any debt secured on it.</li>
+</ul>
+</section>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a></p>
+<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>

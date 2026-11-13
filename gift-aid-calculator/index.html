@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gift Aid Calculator: How Much Is Gift Aid Worth? | Sorted Sheets</title>
+<meta name="description" content="Free Gift Aid calculator. See how much extra a UK charity or community sports club can claim on a donation, the total it gets, and how much tax the donor needs to have paid.">
+<link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/gift-aid-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How much is Gift Aid worth on a donation?">
+<meta property="og:description" content="Free calculator: the Gift Aid a charity can claim on a donation, the total it receives, and the tax the donor must have paid.">
+<meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/gift-aid-calculator/">
+<meta name="theme-color" content="#3f6b47">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Gift Aid calculator",
+ "url": "https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/gift-aid-calculator/",
+ "description": "Works out the Gift Aid a UK charity or CASC can claim on a donation and the total it receives.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
+<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../">All calculators</a></p>
+<h1>How much is Gift Aid worth on a donation?</h1>
+<p class="lead">Gift Aid lets a charity or community amateur sports club claim an extra <span data-fig="gift_aid.per_pound" data-fmt="pence">25p</span> from HMRC for every £1 a UK taxpayer gives. Type a donation to see what it's worth to them.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc">
+<form class="inputs" data-calc="giftaid" novalidate>
+<div class="field"><label for="amount">Donation</label>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="amount" name="amount" value="100" autocomplete="off"></div></div>
+<div class="field"><label for="eligible">Has the donor made a Gift Aid declaration, and paid enough UK tax?</label>
+<span class="hint" id="eligible-hint">Enough tax means Income Tax or Capital Gains Tax this tax year of at least a quarter of what they give.</span>
+<select id="eligible" name="eligible" aria-describedby="eligible-hint"><option value="yes">Yes</option><option value="no">No, or not sure</option></select></div>
+</form>
+
+<section class="results" data-results="giftaid" aria-labelledby="ga-results">
+<h2 id="ga-results">Results</h2>
+<p class="big"><span class="label">Gift Aid the charity can claim</span><span class="value" data-out="giftAid" aria-live="polite">-</span></p>
+<dl class="facts">
+<dt>The donation</dt><dd data-out="amount">-</dd>
+<dt>Total the charity gets</dt><dd data-out="total">-</dd>
+</dl>
+<p data-show="yes">To cover it, the donor needs to have paid at least <strong data-out="taxNeeded">-</strong> in UK Income Tax or Capital Gains Tax in the same tax year (6 April to 5 April).</p>
+<p data-show="no" hidden>No Gift Aid. A charity can only claim it when the donor has made a declaration and paid enough tax. If they're not sure, it's safer not to tick the Gift Aid box: if HMRC pays back more than they paid in tax, they may be asked to pay the difference.</p>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<p>Donations from UK taxpayers are treated as if basic rate tax has already been taken off them. The charity claims that tax back from HMRC: <span data-fig="gift_aid.per_pound" data-fmt="pence">25p</span> for every £1 given. So £100 becomes £125 for the charity, and it costs the donor nothing extra.</p>
+<p>The donor must make a Gift Aid declaration for each charity, and must have paid enough tax. Their donations in a tax year can't be more than <span data-fig="gift_aid.tax_cover_multiple">4</span> times the Income Tax or Capital Gains Tax they paid that year. That's why the calculator shows the tax needed: a quarter of the donation.</p>
+<h2>Higher and additional rate taxpayers</h2>
+<p>If the donor pays tax above the basic rate, they can claim back the difference between the tax they paid on the donation and what the charity got, through their Self Assessment tax return or by asking HMRC to change their tax code. This calculator doesn't work that part out. gov.uk's example: a 40% taxpayer gives £100, the charity claims Gift Aid to make it £125, and the donor can claim back £25.</p>
+<h2>When a charity can't claim it</h2>
+<ul>
+<li>Payments for goods or services, or donations where the donor gets a benefit over a certain limit.</li>
+<li>Donations from limited companies, or made through Payroll Giving.</li>
+<li>Donations of shares, or by charity cards or vouchers.</li>
+<li>There are special rules for sponsored challenges, membership fees, church collections, charity shops, events and auctions.</li>
+</ul>
+<p class="note">For charities: the Gift Aid Small Donations Scheme (a top-up on small cash and contactless gifts) isn't included here. This calculator is for information, not tax advice.</p>
+</div>
+
+<aside class="etsy" aria-label="Custom spreadsheets">
+<p>Keeping track of donations and Gift Aid for a club, church or charity? Sorted Sheets makes <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4594107929">custom spreadsheets</a> for small groups, from <span data-etsy-price>£40</span> on Etsy.</p>
+</aside>
+
+<section class="prose" aria-labelledby="checked">
+<h2 id="checked">Figures checked: <span data-fig="checked_label">November 2026</span></h2>
+<p class="sources">Source:</p>
+<ul class="sources" data-sources="gift_aid">
+<li><a href="https://www.gov.uk/donating-to-charity/gift-aid">Tax relief when you donate to a charity: Gift Aid</a> (gov.uk): Charities can claim an extra 25p for every £1; donations qualify if not more than 4 times the tax you paid that tax year.</li>
+</ul>
+</section>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a></p>
+<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>

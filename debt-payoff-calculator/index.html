@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debt Snowball v Avalanche Calculator UK | Sorted Sheets</title>
+<meta name="description" content="Free debt payoff calculator. List your debts and compare the snowball and avalanche methods: the order to pay them, how many months until you're debt-free and how much interest each way costs.">
+<link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/debt-payoff-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Snowball or avalanche: which pays off debt faster?">
+<meta property="og:description" content="Free calculator: compare the snowball and avalanche methods for your own debts, with months to debt-free and interest.">
+<meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/debt-payoff-calculator/">
+<meta name="theme-color" content="#3f6b47">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Debt snowball and avalanche calculator",
+ "url": "https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/debt-payoff-calculator/",
+ "description": "Compares paying off debts smallest balance first (snowball) with highest interest first (avalanche): the order, months to debt-free and total interest.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
+<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../">All calculators</a></p>
+<h1>Snowball or avalanche: which pays off debt faster?</h1>
+<p class="lead">List your debts and what you can pay on top of the minimums. The calculator compares the two best-known ways to clear them: the order to pay them in, how long until you're debt-free, and the interest each way costs.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc calc--wide">
+<form class="inputs" data-calc="debt" novalidate>
+<fieldset>
+<legend>Your debts</legend>
+<p class="hint">The example debts are made up: change them or remove them. APR is on your statement.</p>
+<div data-rows="debts"></div>
+<button type="button" class="btn-add" data-add="debts">Add another debt</button>
+</fieldset>
+<template id="debts-row">
+<div class="row" data-row>
+<div class="row-head"><h3>Debt <span data-num>1</span></h3><button type="button" class="btn-remove" data-remove>Remove</button></div>
+<div class="row-grid">
+<div class="field"><label data-for="name">Name</label><input type="text" data-f="name" autocomplete="off"></div>
+<div class="field"><label data-for="balance">Balance now</label><div class="money"><span>£</span><input type="text" inputmode="decimal" data-f="balance" autocomplete="off"></div></div>
+<div class="field"><label data-for="apr">Interest (APR)</label><div class="suffix"><input type="text" inputmode="decimal" data-f="apr" autocomplete="off"><span>%</span></div></div>
+<div class="field"><label data-for="min">Minimum a month</label><div class="money"><span>£</span><input type="text" inputmode="decimal" data-f="min" autocomplete="off"></div></div>
+</div>
+</div>
+</template>
+<div class="field" style="max-width: 22em">
+<label for="extra">Extra you can pay each month</label>
+<span class="hint" id="extra-hint">On top of all the minimums.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="extra" name="extra" value="100" aria-describedby="extra-hint" autocomplete="off"></div>
+</div>
+</form>
+
+<section class="results" data-results="debt" aria-labelledby="debt-results">
+<h2 id="debt-results">Results</h2>
+<p class="sentence" aria-live="polite" data-out="sentence"></p>
+<dl class="facts">
+<dt>Total debt</dt><dd data-out="total">-</dd>
+<dt>Paid each month (minimums and extra)</dt><dd data-out="monthly">-</dd>
+</dl>
+<div class="plans">
+<div class="plan" data-plan="snowball">
+<h3>Snowball: smallest balance first</h3>
+<span class="value" data-out="months">-</span>
+<p class="hint" data-out="date"></p>
+<p>Interest: <strong data-out="interest">-</strong></p>
+<ol></ol>
+</div>
+<div class="plan" data-plan="avalanche">
+<h3>Avalanche: highest interest first</h3>
+<span class="value" data-out="months">-</span>
+<p class="hint" data-out="date"></p>
+<p>Interest: <strong data-out="interest">-</strong></p>
+<ol></ol>
+</div>
+</div>
+<p>Minimum payments only, with no extra: <strong data-out="minimumOnly">-</strong></p>
+<div class="table-wrap" data-show="table">
+<table>
+<caption>Each debt</caption>
+<thead><tr><th scope="col">Debt</th><th scope="col">Balance</th><th scope="col">Snowball order</th><th scope="col">Avalanche order</th><th scope="col">At the minimum only</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<p>Both methods pay the minimum on every debt each month and put everything extra on one "focus" debt. When that one is cleared, its whole payment rolls on to the next. What changes is the order:</p>
+<ul>
+<li><strong>Snowball</strong> clears the smallest balance first. You see debts disappear sooner, which keeps a lot of people going.</li>
+<li><strong>Avalanche</strong> clears the highest interest rate first. It usually costs less in interest, sometimes by a lot when one card has a much higher rate.</li>
+</ul>
+<p>The calculator keeps your total monthly payment the same the whole way through, adds interest each month at the APR divided by 12, and counts the months until every balance is £0. If two debts tie, the one higher up the list goes first. "At the minimum only" is how long each debt takes if you only ever pay its minimum.</p>
+<h2>Its limits</h2>
+<ul>
+<li>Lenders work out interest in their own ways (often daily), and APRs can include fees, so real figures will be a little different.</li>
+<li>It assumes the minimum payment stays the same. On many credit cards it falls as the balance falls, which makes paying only the minimum take much longer.</li>
+<li>It doesn't include new spending, fees, or 0% deals ending.</li>
+</ul>
+<p class="note">Struggling with debt? Free, confidential help is available from MoneyHelper, StepChange and Citizens Advice. This calculator is for planning, not financial advice.</p>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<p>Want to track it month by month? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4589267529">Debt Payoff Planner spreadsheet</a> is <span data-etsy-price>£6</span> on Etsy. It puts your debts in snowball or avalanche order, shows your focus debt each month, and fills in progress bars as you update the balances.</p>
+</aside>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a></p>
+<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>
