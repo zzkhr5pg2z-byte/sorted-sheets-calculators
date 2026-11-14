@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Mileage Calculator UK: Sole Trader Mileage Claim</title>
+<meta name="description" content="Free business mileage calculator for the self-employed. Works out your simplified expenses mileage claim for a car, van or motorcycle at HMRC's 2026/27 flat rates, including the change at 10,000 miles.">
+<link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/business-mileage-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How much can I claim for business mileage?">
+<meta property="og:description" content="Free calculator: your simplified expenses mileage claim at HMRC's 2026/27 flat rates.">
+<meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/business-mileage-calculator/">
+<meta name="theme-color" content="#3f6b47">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Business mileage calculator",
+ "url": "https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/business-mileage-calculator/",
+ "description": "Works out a self-employed person's simplified expenses mileage claim at HMRC's flat rates.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
+<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../">All calculators</a></p>
+<h1>How much can I claim for business mileage?</h1>
+<p class="lead">If you're self-employed and use simplified expenses, you claim a flat rate for each business mile instead of your vehicle's running costs. Type your business miles to see the claim at HMRC's <span data-fig="tax_year">2026/27</span> rates.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc">
+<form class="inputs" data-calc="mileage" novalidate>
+<div class="field"><label for="vehicle">Vehicle</label>
+<select id="vehicle" name="vehicle"><option value="car">Car or van</option><option value="motorcycle">Motorcycle</option></select></div>
+<div class="field"><label for="miles">Business miles to work out</label>
+<span class="hint" id="miles-hint">For the whole tax year, or one trip.</span>
+<input type="text" inputmode="decimal" id="miles" name="miles" value="12,000" aria-describedby="miles-hint" autocomplete="off"></div>
+<div class="field"><label for="earlier">Business miles already claimed this tax year</label>
+<span class="hint" id="earlier-hint">In the same car or van, since 6 April. Leave at 0 for a whole year.</span>
+<input type="text" inputmode="decimal" id="earlier" name="earlier" value="0" aria-describedby="earlier-hint" autocomplete="off"></div>
+</form>
+<section class="results" data-results="mileage" aria-labelledby="mi-results">
+<h2 id="mi-results">Results</h2>
+<p class="big"><span class="label">Mileage claim</span><span class="value" data-out="claim" aria-live="polite">-</span></p>
+<p data-out="split"></p>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<table>
+<caption>Flat rates per business mile, <span data-fig="tax_year">2026/27</span></caption>
+<thead><tr><th scope="col">Vehicle</th><th scope="col">Rate</th></tr></thead>
+<tbody>
+<tr><th scope="row">Car or van, first <span data-fig="mileage.car_threshold" data-fmt="num">10,000</span> business miles</th><td><span data-fig="mileage.car_first" data-fmt="pence">55p</span></td></tr>
+<tr><th scope="row">Car or van, after that</th><td><span data-fig="mileage.car_after" data-fmt="pence">25p</span></td></tr>
+<tr><th scope="row">Motorcycle</th><td><span data-fig="mileage.motorcycle" data-fmt="pence">24p</span></td></tr>
+</tbody>
+</table>
+<p>Miles are counted from 6 April each tax year. The trip that takes you past 10,000 miles is split: the miles up to 10,000 at the higher rate, the rest at the lower one.</p>
+<ul>
+<li>The flat rate replaces fuel, insurance, repairs, servicing, road tax and MOT for that vehicle. You can still claim parking and tolls.</li>
+<li>Only business journeys count, not your normal commute.</li>
+<li>You can't use flat rates for a vehicle you've already claimed capital allowances on, and once you use them for a vehicle you keep using them.</li>
+</ul>
+<p class="note">For information, not tax advice.</p>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<p>Want a mileage log for the whole year? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4589301590">UK Sole Trader Bookkeeping Kit</a> is <span data-etsy-price>£15</span> on Etsy. It logs business journeys and works out the claim at HMRC's flat rates, alongside your income, expenses and a tax-year summary.</p>
+</aside>
+
+<section class="prose" aria-labelledby="checked">
+<h2 id="checked">Figures checked: <span data-fig="checked_label">November 2026</span></h2>
+<p class="sources">Sources:</p>
+<ul class="sources" data-sources="simplified_vehicles amap_rates">
+<li><a href="https://www.gov.uk/simpler-income-tax-simplified-expenses/vehicles-">Simplified expenses if you're self-employed: vehicles</a> (gov.uk): 2026 to 2027: cars and goods vehicles 55p for the first 10,000 miles (45p before 6 April 2026), then 25p; motorcycles 24p.</li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-travel-mileage-and-fuel-allowances/travel-mileage-and-fuel-rates-and-allowances">Travel: mileage and fuel rates and allowances</a> (gov.uk): Approved mileage rates from 2026 to 2027: cars and vans 55p then 25p; motor cycles 24p; bicycles 20p.</li>
+</ul>
+</section>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a></p>
+<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>

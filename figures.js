@@ -87,7 +87,6 @@ window.SS_FIGURES = {
   ]
  },
  "mileage": {
-  "status": "held: templates use 45p, gov.uk says 55p from 6 April 2026",
   "car_first": 0.55,
   "car_after": 0.25,
   "car_threshold": 10000,
