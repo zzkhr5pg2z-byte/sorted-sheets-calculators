@@ -272,9 +272,63 @@
     return { first: first, after: miles - first, claim: first * M.car_first + (miles - first) * M.car_after };
   }
 
+  /* ------------------------------------------------------------------ 7. Self Assessment 2025/26
+     self_assessment_2025_26.xlsx, Tax Estimate tab: F25-F36 (expenses or the trading allowance), F49-F59 (Income Tax
+     by band), F62-F65 (Class 4 and Class 2), F68-F77 (the bill, balancing payment and payments on account).
+     o: where, method ("best", "expenses", "allowance"), income (all business income), expenses (all allowable expenses,
+     flat rates included), job and paye (P60 pay and the tax taken off it), paidJan and paidJul (payments on account
+     already made for 2025/26), weeks (voluntary Class 2), exempt (from Class 4). */
+  function selfAssessment(o, F) {
+    var S = F.self_assessment;
+    var pos = function (x) { return x > 0 ? x : 0; };
+    var income = pos(o.income), expenses = pos(o.expenses), job = pos(o.job), paye = pos(o.paye);
+    var profitExpenses = income - expenses;                                          // F25
+    var allowance = Math.min(S.trading_allowance, income);                           // F26
+    var profitAllowance = income - allowance;                                        // F27
+    var best = income <= 0 ? "expenses" : (profitAllowance < profitExpenses ? "allowance" : "expenses");   // F28
+    var method = o.method === "expenses" || o.method === "allowance" ? o.method : best;                 // F30
+    var ta = method === "allowance";
+    var profit = ta ? profitAllowance : Math.max(0, profitExpenses);                 // F36 (F33)
+    var loss = ta ? 0 : Math.max(0, -profitExpenses);                                // F34
+    var totalIncome = profit + job;                                                  // F49
+    var personalAllowance = Math.max(0, S.personal_allowance - Math.max(0, totalIncome - S.pa_income_limit) * S.pa_taper);  // F50
+    var taxable = Math.max(0, totalIncome - personalAllowance);                      // F51
+    var scotland = o.where === "Scotland";
+    var lower = 0, incomeTax = 0;
+    var bands = (scotland ? S.scotland_bands : S.ruk_bands).map(function (b) {       // rows 53-58
+      var inBand = Math.max(0, (b.upto === null ? taxable : Math.min(taxable, b.upto)) - lower);
+      var tax = inBand * b.rate;
+      lower = b.upto === null ? lower : b.upto;
+      incomeTax += tax;
+      return { name: b.name, rate: b.rate, upto: b.upto, inBand: inBand, tax: tax };
+    });
+    var class4Main = o.exempt ? 0 : Math.max(0, Math.min(profit, S.class4_upper) - S.class4_lower) * S.class4_main;  // F62
+    var class4Upper = o.exempt ? 0 : Math.max(0, profit - S.class4_upper) * S.class4_upper_rate;                      // F63
+    var class4 = class4Main + class4Upper;                                           // F64
+    var class2Paid = profit >= S.class2_threshold;
+    var class2 = class2Paid ? 0 : pos(o.weeks) * S.class2_week;                      // F65
+    var taxAndClass4 = incomeTax + class4;                                           // F68
+    var bill = taxAndClass4 - paye + class2;                                         // F71
+    var paidOnAccount = pos(o.paidJan) + pos(o.paidJul);
+    var balancing = bill - paidOnAccount;                                            // F73
+    var owed = taxAndClass4 - paye;                                                  // F68 + F69
+    var poaReason = owed < S.poa_min ? "under" : paye > S.poa_paye_share * taxAndClass4 ? "paye" : "yes";   // F74, G74
+    var poaNeeded = poaReason === "yes";
+    var poa1 = poaNeeded ? round(owed * S.poa_share, 2) : 0;                         // F75
+    return {
+      income: income, expenses: expenses, profitExpenses: profitExpenses, allowance: allowance,
+      profitAllowance: profitAllowance, best: best, method: method, profit: profit, loss: loss, job: job, paye: paye,
+      totalIncome: totalIncome, personalAllowance: personalAllowance, taxable: taxable, scotland: scotland,
+      bands: bands, incomeTax: incomeTax, class4Main: class4Main, class4Upper: class4Upper, class4: class4,
+      class2: class2, class2Paid: class2Paid, taxAndClass4: taxAndClass4, bill: bill, paidOnAccount: paidOnAccount,
+      balancing: balancing, poaNeeded: poaNeeded, poaReason: poaReason, poa1: poa1,
+      dueJanuary: Math.max(0, balancing + poa1), poa2: poa1                          // F76, F77
+    };
+  }
+
   var Calc = {
     careRunway: careRunway, ihtGifts: ihtGifts, christmas: christmas, nextChristmas: nextChristmas,
-    debtPlan: debtPlan, giftAid: giftAid, mileage: mileage, taxYear: taxYear,
+    debtPlan: debtPlan, giftAid: giftAid, mileage: mileage, selfAssessment: selfAssessment, taxYear: taxYear,
     util: { round: round, roundUp: roundUp, days: days, ymd: ymd, edate: edate, parseDate: parseDate,
             isoDate: isoDate, parseNum: parseNum, nperMonths: nperMonths }
   };
@@ -602,7 +656,70 @@
     fill();
   }
 
-  var UI = { care: careUI, iht: ihtUI, christmas: christmasUI, debt: debtUI, giftaid: giftAidUI, mileage: mileageUI };
+  /* ---- Self Assessment 2025/26 */
+  function saUI(form) {
+    var res = document.querySelector('[data-results="sa"]'), S = FIG.self_assessment;
+    function pct(x) { return Math.round(x * 1000) / 10 + "%"; }
+    function fill() {
+      var r = selfAssessment({
+        where: field(form, "where").value, method: field(form, "method").value,
+        income: num(form, "income"), expenses: num(form, "expenses"), job: num(form, "job"), paye: num(form, "paye"),
+        paidJan: num(form, "paidJan"), paidJul: num(form, "paidJul"), weeks: num(form, "weeks"),
+        exempt: field(form, "exempt").value === "yes"
+      }, FIG);
+      out(res, "dueJanuary", money(r.dueJanuary));
+      out(res, "balancing", money(r.balancing));
+      out(res, "poa1", money(r.poa1));
+      out(res, "poa2", money(r.poa2));
+      out(res, "bill", money(r.bill));
+      out(res, "profit", money(r.profit));
+      out(res, "job", money(r.job));
+      out(res, "totalIncome", money(r.totalIncome));
+      out(res, "personalAllowance", money(r.personalAllowance));
+      out(res, "taxable", money(r.taxable));
+      out(res, "incomeTax", money(r.incomeTax));
+      out(res, "class4", money(r.class4));
+      out(res, "class2", r.class2Paid ? "Treated as paid" : money(r.class2));
+      out(res, "paye", money(-r.paye));
+      out(res, "paidOnAccount", money(-r.paidOnAccount));
+      out(res, "rates", r.scotland ? "Scottish rates" : "Rates for England, Wales and Northern Ireland");
+      var other = r.method === "allowance" ? r.profitExpenses : r.profitAllowance;
+      out(res, "method", r.income <= 0 ? "No business income typed in yet." :
+        (r.method === "allowance" ? "Profit using the " + money0(S.trading_allowance) + " trading allowance: " + money(r.profitAllowance) +
+          ". With your actual expenses it would be " + money(other) + "."
+          : "Profit using your actual expenses: " + money(r.profitExpenses) +
+          ". With the " + money0(S.trading_allowance) + " trading allowance instead it would be " + money(other) + "."));
+      show(res, "loss", r.loss > 0);
+      out(res, "loss", money(r.loss));
+      var sentence;
+      if (r.poaNeeded) {
+        sentence = "Your bill for " + S.tax_year + " is " + money(r.bill) + (r.paidOnAccount > 0 ? ", and you've paid " +
+          money(r.paidOnAccount) + " on account already" : "") + ". The Income Tax and Class 4 you owe is " + money0(S.poa_min) + " or more, and no more than " +
+          pct(S.poa_paye_share) + " of your tax was taken off your pay, so HMRC also asks for 2 payments on account towards " +
+          S.next_tax_year + ": " + money(r.poa1) + " by " + S.due_january + " and " + money(r.poa2) + " by " + S.due_july + ".";
+      } else {
+        sentence = "Your bill for " + S.tax_year + " is " + money(r.bill) + (r.paidOnAccount > 0 ? ", and you've paid " +
+          money(r.paidOnAccount) + " on account already" : "") + ". No payments on account for " + S.next_tax_year + ": " +
+          (r.poaReason === "under" ? "the Income Tax and Class 4 you owe, after the tax taken off your pay, is under " + money0(S.poa_min) + "."
+            : "more than " + pct(S.poa_paye_share) + " of your tax was taken off your pay through PAYE.");
+      }
+      out(res, "sentence", sentence);
+      out(res, "poaNeeded", r.poaNeeded ? "Yes" : "No");
+      show(res, "overpaid", r.balancing < -0.005);
+      out(res, "overpaid", "You've paid " + money(-r.balancing) + " more than you owe for " + S.tax_year +
+        ". If you have tax due in the next 45 days, such as a payment on account, HMRC may take it off that instead of refunding it" +
+        (r.poaNeeded ? ", so it's taken off the January total above." : "."));
+      fillTable(res.querySelector("tbody[data-out-rows='bands']"), r.bands.map(function (b) {
+        return [b.name, pct(b.rate), money(b.inBand), money(b.tax)];
+      }));
+    }
+    form.addEventListener("input", fill);
+    form.addEventListener("change", fill);
+    fill();
+  }
+
+  var UI = { care: careUI, iht: ihtUI, christmas: christmasUI, debt: debtUI, giftaid: giftAidUI, mileage: mileageUI,
+             sa: saUI };
   function start() {
     document.querySelectorAll("form[data-calc]").forEach(function (form) {
       form.addEventListener("submit", function (e) { e.preventDefault(); });

@@ -119,6 +119,7 @@ tbody th { font-weight: normal; }
 .note { background: var(--sand); border-radius: 8px; padding: .8em 1em; }
 .etsy { background: var(--sage); border-radius: 10px; padding: 1em 1.2em; margin: 2em 0; max-width: 46em; }
 .etsy p { margin: 0; }
+.etsy p + p { margin-top: .6em; }
 .sources { font-size: .9rem; color: var(--muted); }
 .sources li { margin-bottom: .3em; }
 .cards { list-style: none; padding: 0; display: grid; gap: 1em; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 1.5em 0; }

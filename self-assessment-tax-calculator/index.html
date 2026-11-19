@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self Assessment Tax Calculator 2025/26 and Payments on Account</title>
+<meta name="description" content="Free Self Assessment calculator for 2025/26: Income Tax and Class 4 NI on sole trader profit, the bill due 31 January 2027, and any payments on account.">
+<link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/self-assessment-tax-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How much will my Self Assessment bill be in January 2027?">
+<meta property="og:description" content="Free calculator: Income Tax, Class 4 National Insurance, the balancing payment and payments on account for 2025/26.">
+<meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/self-assessment-tax-calculator/">
+<meta name="theme-color" content="#3f6b47">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Self Assessment tax calculator 2025/26",
+ "url": "https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/self-assessment-tax-calculator/",
+ "description": "Estimates a UK sole trader's 2025/26 Income Tax and Class 4 National Insurance, the balancing payment due 31 January 2027 and any payments on account for 2026/27.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
+<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../">All calculators</a></p>
+<h1>How much will my Self Assessment bill be in January 2027?</h1>
+<p class="lead">For sole traders filing the <span data-fig="self_assessment.tax_year">2025/26</span> return (<span data-fig="self_assessment.tax_year_long">6 April 2025 to 5 April 2026</span>). Type your business income and expenses, and any job or pension pay. You'll see your Income Tax and Class 4 National Insurance, the balancing payment due by <span data-fig="self_assessment.due_january">31 January 2027</span>, and whether HMRC will ask for payments on account towards <span data-fig="self_assessment.next_tax_year">2026/27</span>.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc">
+<form class="inputs" data-calc="sa" novalidate>
+<fieldset>
+<legend>Your business, <span data-fig="self_assessment.tax_year">2025/26</span></legend>
+<div class="field"><label for="where">Where you lived</label>
+<span class="hint" id="where-hint">Scotland has its own Income Tax bands. National Insurance is the same everywhere.</span>
+<select id="where" name="where" aria-describedby="where-hint"><option>England</option><option>Wales</option><option>Northern Ireland</option><option>Scotland</option></select></div>
+<div class="field"><label for="income">Business income</label>
+<span class="hint" id="income-hint">Everything the business took in from 6 April 2025 to 5 April 2026, before expenses.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="income" name="income" value="46,000" aria-describedby="income-hint" autocomplete="off"></div></div>
+<div class="field"><label for="expenses">Allowable business expenses</label>
+<span class="hint" id="expenses-hint">Include any mileage or use-of-home flat rates. Leave out personal costs.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="expenses" name="expenses" value="6,000" aria-describedby="expenses-hint" autocomplete="off"></div></div>
+<div class="field"><label for="method">Expenses or the trading allowance</label>
+<span class="hint" id="method-hint">You can take up to <span data-fig="self_assessment.trading_allowance" data-fmt="money0">£1,000</span> off your income instead of claiming expenses, but not both.</span>
+<select id="method" name="method" aria-describedby="method-hint"><option value="best">Whichever gives the lower profit</option><option value="expenses">My actual expenses</option><option value="allowance">The trading allowance</option></select></div>
+</fieldset>
+<fieldset>
+<legend>Jobs, pensions and what you've paid</legend>
+<div class="field"><label for="job">Pay from jobs or pensions</label>
+<span class="hint" id="job-hint">Total pay for <span data-fig="self_assessment.tax_year">2025/26</span> from your P60s (or P45 if you left).</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="job" name="job" value="0" aria-describedby="job-hint" autocomplete="off"></div></div>
+<div class="field"><label for="paye">Income Tax already taken off that pay</label>
+<span class="hint" id="paye-hint">From the same P60s.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="paye" name="paye" value="0" aria-describedby="paye-hint" autocomplete="off"></div></div>
+<p class="hint" id="paid-hint">Payments on account you've already made towards <span data-fig="self_assessment.tax_year">2025/26</span>. Only if you paid them last year: your HMRC online account shows them.</p>
+<div class="pair">
+<div class="field"><label for="paidJan">Paid January 2026</label>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="paidJan" name="paidJan" value="0" aria-describedby="paid-hint" autocomplete="off"></div></div>
+<div class="field"><label for="paidJul">Paid July 2026</label>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="paidJul" name="paidJul" value="0" aria-describedby="paid-hint" autocomplete="off"></div></div>
+</div>
+</fieldset>
+<details>
+<summary>Less common: voluntary Class 2, Class 4 exemption</summary>
+<div class="field"><label for="weeks">Weeks of voluntary Class 2 to pay</label>
+<span class="hint" id="weeks-hint">Only counts if your profit is under <span data-fig="self_assessment.class2_threshold" data-fmt="money0">£6,845</span>, to keep the year on your National Insurance record. <span data-fig="self_assessment.class2_week" data-fmt="money2">£3.50</span> a week, up to 52 weeks.</span>
+<input type="text" inputmode="numeric" id="weeks" name="weeks" value="0" aria-describedby="weeks-hint" autocomplete="off"></div>
+<div class="field"><label for="exempt">Exempt from Class 4?</label>
+<span class="hint" id="exempt-hint">For example, you'd reached State Pension age before 6 April 2025. HMRC's notes for the self-employment pages list the other cases. Not sure? Leave it at No.</span>
+<select id="exempt" name="exempt" aria-describedby="exempt-hint"><option value="no">No</option><option value="yes">Yes, exempt</option></select></div>
+</details>
+</form>
+
+<section class="results" data-results="sa" aria-labelledby="sa-results">
+<h2 id="sa-results">Results</h2>
+<p class="big"><span class="label">Total to pay by <span data-fig="self_assessment.due_january">31 January 2027</span></span><span class="value" data-out="dueJanuary">-</span></p>
+<p class="sentence" aria-live="polite" data-out="sentence"></p>
+<div class="tiles">
+<p class="tile sage"><span class="label">Balancing payment, <span data-fig="self_assessment.tax_year">2025/26</span></span><span class="value" data-out="balancing">-</span></p>
+<p class="tile mist"><span class="label">Payments on account needed?</span><span class="value" data-out="poaNeeded">-</span></p>
+<p class="tile"><span class="label">1st payment on account, by <span data-fig="self_assessment.due_january">31 January 2027</span></span><span class="value" data-out="poa1">-</span></p>
+<p class="tile blush"><span class="label">2nd payment on account, by <span data-fig="self_assessment.due_july">31 July 2027</span></span><span class="value" data-out="poa2">-</span></p>
+</div>
+<p class="hint" data-show="overpaid" data-out="overpaid" hidden></p>
+<dl class="facts">
+<dt>Taxable profit from the business</dt><dd data-out="profit">-</dd>
+<dt>Pay from jobs or pensions</dt><dd data-out="job">-</dd>
+<dt>Total income</dt><dd data-out="totalIncome">-</dd>
+<dt>Personal Allowance</dt><dd data-out="personalAllowance">-</dd>
+<dt>Taxable income</dt><dd data-out="taxable">-</dd>
+<dt>Income Tax</dt><dd data-out="incomeTax">-</dd>
+<dt>Class 4 National Insurance</dt><dd data-out="class4">-</dd>
+<dt>Class 2 National Insurance</dt><dd data-out="class2">-</dd>
+<dt>Less tax taken off your pay</dt><dd data-out="paye">-</dd>
+<dt>Your Self Assessment bill</dt><dd data-out="bill">-</dd>
+<dt>Less payments on account made</dt><dd data-out="paidOnAccount">-</dd>
+<dt>Balancing payment</dt><dd data-out="balancing">-</dd>
+</dl>
+<p class="hint" data-out="method"></p>
+<p class="hint" data-show="loss" hidden>A loss of <span data-out="loss">£0.00</span>: no tax on the business this year. Using a loss against other income isn't worked out here.</p>
+<div class="table-wrap">
+<table>
+<caption>Income Tax by band: <span data-out="rates">Rates for England, Wales and Northern Ireland</span></caption>
+<thead><tr><th scope="col">Band</th><th scope="col">Rate</th><th scope="col">Income in band</th><th scope="col">Tax</th></tr></thead>
+<tbody data-out-rows="bands"></tbody>
+</table>
+</div>
+<p class="hint">An estimate, not tax advice. HMRC's own calculation is the one that counts.</p>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<h3>1. Your profit</h3>
+<p>Profit is your business income less your allowable expenses. Or you can take the <span data-fig="self_assessment.trading_allowance" data-fmt="money0">£1,000</span> trading allowance off your income instead, which helps if your expenses are small. The calculator picks whichever gives the lower profit, unless you choose. The allowance can't be more than your income, so it can't make a loss.</p>
+<h3>2. Income Tax</h3>
+<p>Your profit and any job or pension pay are added together. The Personal Allowance of <span data-fig="self_assessment.personal_allowance" data-fmt="money0">£12,570</span> is tax-free. It goes down by £1 for every £2 of income over <span data-fig="self_assessment.pa_income_limit" data-fmt="money0">£100,000</span>, so it's gone at <span data-fig="self_assessment.pa_zero_at" data-fmt="money0">£125,140</span>. The rest is taxed in bands.</p>
+<div class="table-wrap">
+<table>
+<caption>England, Wales and Northern Ireland, <span data-fig="self_assessment.tax_year">2025/26</span> (income after the allowance)</caption>
+<thead><tr><th scope="col">Band</th><th scope="col">Income</th><th scope="col">Rate</th></tr></thead>
+<tbody>
+<tr><th scope="row">Basic rate</th><td>Up to <span data-fig="self_assessment.ruk_bands.0.upto" data-fmt="money0">£37,700</span></td><td><span data-fig="self_assessment.ruk_bands.0.rate" data-fmt="pct">20%</span></td></tr>
+<tr><th scope="row">Higher rate</th><td>Over <span data-fig="self_assessment.ruk_bands.0.upto" data-fmt="money0">£37,700</span> to <span data-fig="self_assessment.ruk_bands.1.upto" data-fmt="money0">£125,140</span></td><td><span data-fig="self_assessment.ruk_bands.1.rate" data-fmt="pct">40%</span></td></tr>
+<tr><th scope="row">Additional rate</th><td>Over <span data-fig="self_assessment.ruk_bands.1.upto" data-fmt="money0">£125,140</span></td><td><span data-fig="self_assessment.ruk_bands.2.rate" data-fmt="pct">45%</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="table-wrap">
+<table>
+<caption>Scotland, <span data-fig="self_assessment.tax_year">2025/26</span> (income after the allowance)</caption>
+<thead><tr><th scope="col">Band</th><th scope="col">Income</th><th scope="col">Rate</th></tr></thead>
+<tbody>
+<tr><th scope="row">Starter rate</th><td>Up to <span data-fig="self_assessment.scotland_bands.0.upto" data-fmt="money0">£2,827</span></td><td><span data-fig="self_assessment.scotland_bands.0.rate" data-fmt="pct">19%</span></td></tr>
+<tr><th scope="row">Basic rate</th><td>Over <span data-fig="self_assessment.scotland_bands.0.upto" data-fmt="money0">£2,827</span> to <span data-fig="self_assessment.scotland_bands.1.upto" data-fmt="money0">£14,921</span></td><td><span data-fig="self_assessment.scotland_bands.1.rate" data-fmt="pct">20%</span></td></tr>
+<tr><th scope="row">Intermediate rate</th><td>Over <span data-fig="self_assessment.scotland_bands.1.upto" data-fmt="money0">£14,921</span> to <span data-fig="self_assessment.scotland_bands.2.upto" data-fmt="money0">£31,092</span></td><td><span data-fig="self_assessment.scotland_bands.2.rate" data-fmt="pct">21%</span></td></tr>
+<tr><th scope="row">Higher rate</th><td>Over <span data-fig="self_assessment.scotland_bands.2.upto" data-fmt="money0">£31,092</span> to <span data-fig="self_assessment.scotland_bands.3.upto" data-fmt="money0">£62,430</span></td><td><span data-fig="self_assessment.scotland_bands.3.rate" data-fmt="pct">42%</span></td></tr>
+<tr><th scope="row">Advanced rate</th><td>Over <span data-fig="self_assessment.scotland_bands.3.upto" data-fmt="money0">£62,430</span> to <span data-fig="self_assessment.scotland_bands.4.upto" data-fmt="money0">£125,140</span></td><td><span data-fig="self_assessment.scotland_bands.4.rate" data-fmt="pct">45%</span></td></tr>
+<tr><th scope="row">Top rate</th><td>Over <span data-fig="self_assessment.scotland_bands.4.upto" data-fmt="money0">£125,140</span></td><td><span data-fig="self_assessment.scotland_bands.5.rate" data-fmt="pct">48%</span></td></tr>
+</tbody>
+</table>
+</div>
+<h3>3. National Insurance</h3>
+<p>Class 4 is <span data-fig="self_assessment.class4_main" data-fmt="pct">6%</span> of your profit between <span data-fig="self_assessment.class4_lower" data-fmt="money0">£12,570</span> and <span data-fig="self_assessment.class4_upper" data-fmt="money0">£50,270</span>, and <span data-fig="self_assessment.class4_upper_rate" data-fmt="pct">2%</span> of profit above that. It's on your business profit only, not your job pay. With a profit of <span data-fig="self_assessment.class2_threshold" data-fmt="money0">£6,845</span> or more, Class 2 is treated as paid, so there's nothing to pay and the year still counts for your State Pension. Below that you can choose to pay voluntary Class 2 at <span data-fig="self_assessment.class2_week" data-fmt="money2">£3.50</span> a week.</p>
+<h3>4. What you pay in January</h3>
+<p>Your bill for <span data-fig="self_assessment.tax_year">2025/26</span> is the Income Tax and Class 4, less the tax already taken off your job or pension pay, plus any voluntary Class 2. Take off any payments on account you made for <span data-fig="self_assessment.tax_year">2025/26</span> last year, and what's left is the balancing payment.</p>
+<p>HMRC then usually asks for 2 payments on account towards <span data-fig="self_assessment.next_tax_year">2026/27</span>, each half of this year's Income Tax and Class 4 (less the tax taken off your pay). The first is due with the balancing payment by <span data-fig="self_assessment.due_january">31 January 2027</span>, the second by <span data-fig="self_assessment.due_july">31 July 2027</span>. You don't need them if that tax is under <span data-fig="self_assessment.poa_min" data-fmt="money0">£1,000</span>, or if more than <span data-fig="self_assessment.poa_paye_share" data-fmt="pct">80%</span> of your tax was taken off your pay. That's why the first January bill often comes as a shock: it's this year's tax plus half as much again. If you know next year's profit will be lower, you can ask HMRC to reduce your payments on account.</p>
+<h3>Not included</h3>
+<ul>
+<li>Savings interest, dividends, rental income and capital gains. Student Loan repayments and the High Income Child Benefit Charge.</li>
+<li>Pension contributions, Gift Aid and Marriage Allowance, which can lower your tax. Benefits from a job (P11D).</li>
+<li>Capital allowances, and using a loss against other income.</li>
+<li>If you're employed too, the National Insurance annual maximum could lower your Class 4. HMRC works that out.</li>
+<li>More than one business, or a partnership.</li>
+</ul>
+<p class="note">An estimate to help you plan, not tax advice. HMRC's own calculation is the one that counts.</p>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<p>Want it all worked out in a spreadsheet? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4619679203">Self Assessment Helper 2025/26</a> is <span data-etsy-price>£8</span> on Etsy. You log your income, expenses, mileage and use of home, and it works out this same estimate, plus the figures to copy onto the short self-employment pages of your return. For Excel and Google Sheets.</p>
+<p>Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com">SortedSheetsShopUK</a></p>
+</aside>
+
+<section class="prose" aria-labelledby="checked">
+<h2 id="checked">Figures checked: <span data-fig="self_assessment.checked_label">19 November 2026</span></h2>
+<p class="sources">Sources:</p>
+<ul class="sources" data-sources="sa_income_tax sa_pa_taper sa_ni sa_ni_stop sa_trading_allowance sa_poa sa_deadline sa_refund">
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-income-tax/income-tax-rates-and-allowances-current-and-past">Income Tax rates and allowances for current and previous tax years</a> (gov.uk): 2025 to 2026: Personal Allowance £12,570, income limit £100,000; England, Wales and Northern Ireland 20% up to £37,700, 40% to £125,140, 45% over; Scotland 19% up to £2,827, 20% to £14,921, 21% to £31,092, 42% to £62,430, 45% to £125,140, 48% over (income after allowances).</li>
+<li><a href="https://www.gov.uk/income-tax-rates">Income Tax rates and Personal Allowances</a> (gov.uk): The Personal Allowance goes down by £1 for every £2 of adjusted net income over £100,000, so it's zero at £125,140 or above.</li>
+<li><a href="https://www.gov.uk/government/publications/rates-and-allowances-national-insurance-contributions/rates-and-allowances-national-insurance-contributions">Rates and allowances: National Insurance contributions</a> (gov.uk): 2025 to 2026: Class 4 6% on profits from £12,570 to £50,270 and 2% above; Class 2 Small Profits Threshold £6,845, £3.50 a week.</li>
+<li><a href="https://www.gov.uk/national-insurance">National Insurance: introduction</a> (gov.uk): If you're self-employed you stop paying Class 4 from 6 April (the start of the tax year) after you reach State Pension age.</li>
+<li><a href="https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income">Tax-free allowances on property and trading income</a> (gov.uk): Up to £1,000 a tax year of trading income, used instead of deducting expenses, and never more than the income.</li>
+<li><a href="https://www.gov.uk/understand-self-assessment-bill/payments-on-account">Understand your Self Assessment tax bill: payments on account</a> (gov.uk): Two payments, each half of last year's tax (including Class 4), due by 31 January and 31 July; not needed if that tax was under £1,000 or more than 80% of it was paid outside Self Assessment.</li>
+<li><a href="https://www.gov.uk/self-assessment-tax-returns/deadlines">Self Assessment tax returns: deadlines</a> (gov.uk): For 6 April 2025 to 5 April 2026, pay the tax you owe by 11:59pm on 31 January 2027.</li>
+<li><a href="https://www.gov.uk/self-assessment-tax-returns/claiming-a-tax-refund">Self Assessment tax returns: claiming a tax refund</a> (gov.uk): You may not get a refund if you have tax due in the next 45 days (for example a payment on account): it's taken off the tax you owe instead.</li>
+</ul>
+</section>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a> · <a href="../creators/">For creators</a></p>
+<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>
