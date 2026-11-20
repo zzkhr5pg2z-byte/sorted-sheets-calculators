@@ -13,8 +13,9 @@
 <meta property="og:url" content="https://www.sortedsheets.uk/inheritance-tax-gifts-calculator/">
 <meta property="og:image" content="https://www.sortedsheets.uk/og/inheritance-tax-gifts.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1b2a4a">
+<meta name="theme-color" content="#D7EFFF">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/anybody.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
 <script src="../figures.js" defer></script>
 <script src="../calc.js" defer></script>
@@ -28,10 +29,11 @@
 </head>
 <body>
 <!-- header -->
+<script>document.documentElement.classList.add("js")</script>
 <a class="skip" href="#main">Skip to the main content</a>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="../" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
-<nav aria-label="Main"><a href="../shop/">Shop</a><a href="../calculators/" aria-current="page">Free calculators</a><a href="../custom/">Custom spreadsheets</a><a href="../creators/">For creators</a></nav>
+<a class="brand" href="../" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#351E28"/><g fill="#F0EEE9"><rect x="12.8" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="26.6" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="40.3" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="12.8" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="40.3" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="12.8" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/></g><rect x="40.3" y="40.3" width="10.9" height="10.9" rx="2" fill="#FF5C34"/></svg><b>Sorted Sheets</b></a>
+<nav aria-label="Main"><a href="../shop/">Shop</a><a href="../calculators/" aria-current="page">Calculators</a><a href="../custom/">Custom</a><a href="../creators/">Creators</a></nav>
 </div></header>
 <!-- /header -->
 <main id="main" class="wrap">
@@ -55,7 +57,7 @@
 </fieldset>
 <template id="gifts-row">
 <div class="row" data-row>
-<div class="row-head"><h3>Gift <span data-num>1</span></h3><button type="button" class="btn-remove" data-remove>Remove</button></div>
+<div class="row-head"><h2>Gift <span data-num>1</span></h2><button type="button" class="btn-remove" data-remove>Remove</button></div>
 <div class="row-grid">
 <div class="field"><label data-for="date">Date given</label><input type="date" data-f="date"></div>
 <div class="field"><label data-for="amount">Value</label><div class="money"><span>£</span><input type="text" inputmode="decimal" data-f="amount" autocomplete="off"></div></div>
@@ -140,17 +142,14 @@
 </main>
 <!-- footer -->
 <footer class="site-footer"><div class="wrap">
-<div>
-<a class="brand" href="../" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
+<p class="shopname">Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com"><span class="stretchy">SortedSheetsShopUK</span></a></p>
 <div class="lines">
-<p>Etsy shop: SortedSheetsShopUK · <a href="https://sortedsheetsshopuk.etsy.com">sortedsheetsshopuk.etsy.com</a></p>
 <p>Payments and downloads are handled by Etsy.</p>
 <p>No cookies and no tracking. The calculators work everything out in your browser: nothing you type is sent anywhere.</p>
 <p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
-<span class="made">Made in the UK</span>
+<p class="made">Made in the UK</p>
 </div>
-</div>
-<nav aria-label="Footer"><a href="../shop/">Shop</a><a href="../calculators/">Free calculators</a><a href="../custom/">Custom spreadsheets</a><a href="../creators/">For creators</a><a href="../about/">About</a></nav>
+<nav aria-label="Footer"><a href="../shop/">Shop</a><a href="../calculators/">Calculators</a><a href="../custom/">Custom</a><a href="../creators/">Creators</a><a href="../about/">About</a></nav>
 </div></footer>
 <!-- /footer -->
 </body>

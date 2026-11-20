@@ -13,8 +13,10 @@
 <meta property="og:url" content="https://www.sortedsheets.uk/">
 <meta property="og:image" content="https://www.sortedsheets.uk/og/home.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1b2a4a">
+<meta name="theme-color" content="#D7EFFF">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/anybody.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -44,146 +46,223 @@
 </head>
 <body>
 <!-- header -->
+<script>document.documentElement.classList.add("js")</script>
 <a class="skip" href="#main">Skip to the main content</a>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="./" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
-<nav aria-label="Main"><a href="./shop/">Shop</a><a href="./calculators/">Free calculators</a><a href="./custom/">Custom spreadsheets</a><a href="./creators/">For creators</a></nav>
+<a class="brand" href="./" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#351E28"/><g fill="#F0EEE9"><rect x="12.8" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="26.6" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="40.3" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="12.8" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="40.3" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="12.8" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/></g><rect x="40.3" y="40.3" width="10.9" height="10.9" rx="2" fill="#FF5C34"/></svg><b>Sorted Sheets</b></a>
+<nav aria-label="Main"><a href="./shop/">Shop</a><a href="./calculators/">Calculators</a><a href="./custom/">Custom</a><a href="./creators/">Creators</a></nav>
 </div></header>
 <!-- /header -->
-<main id="main">
-<section class="hero on-navy">
-<div class="wrap">
-<div>
-<span class="kicker">Excel and Google Sheets templates</span>
-<h1>UK spreadsheets that <mark>do the maths</mark> for you</h1>
-<p class="lead">Budgets, Christmas, debts and sole trader bookkeeping. Type your numbers in once and the sheet works out the totals. Instant download, and it opens in Excel or Google Sheets.</p>
-<div class="actions">
-<a class="btn btn--sun" href="shop/">Browse the shop <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<a class="btn btn--ghost" href="calculators/">Try a free calculator</a>
-</div>
-<ul class="facts-row">
-<li>Excel and Google Sheets</li>
-<li>Instant download from Etsy</li>
-<li>Prices in pounds</li>
+<main id="main" class="home">
+<section class="block hero" aria-labelledby="hero-h">
+<div class="wrap hero-in">
+<h1 id="hero-h"><span class="h-a">Spreadsheets</span> <span class="h-b">that do the <i>maths</i></span> <span class="h-c">for you.</span></h1>
+<p class="lead">Budgets, Christmas, debts and bookkeeping for Excel and Google Sheets. Type your numbers in once and the sheet does the rest. Instant download from Etsy.</p>
+<div class="deck-wrap">
+<!-- home-deck -->
+<div class="deck" data-deck aria-roledescription="card stack" aria-label="Featured templates" role="group">
+<ul class="deck-cards">
+<li class="card" style="--k:0;--r:-2deg" data-name="Christmas Budget &amp; Gift Planner" data-price="£6"><a class="sheet" href="christmas-budget-gift-planner/"><img src="img/shop/4608845140.jpg" srcset="img/thumb/4608845140-480.webp 480w, img/shop/4608845140.jpg 800w" sizes="(min-width: 960px) 430px, 260px" width="800" height="600" alt="Christmas Budget &amp; Gift Planner: the real spreadsheet, from its Etsy listing" draggable="false"><span class="lbl"><b>Christmas Budget &amp; Gift Planner</b><i><span data-etsy-price="4608845140">£6</span></i></span></a></li>
+<li class="card" style="--k:1;--r:4deg" data-name="Yearly Budget Planner" data-price="£6"><a class="sheet" href="yearly-budget/"><img src="img/shop/4589298112.jpg" srcset="img/thumb/4589298112-480.webp 480w, img/shop/4589298112.jpg 800w" sizes="(min-width: 960px) 430px, 260px" width="800" height="600" alt="Yearly Budget Planner: the real spreadsheet, from its Etsy listing" loading="lazy" draggable="false"><span class="lbl"><b>Yearly Budget Planner</b><i><span data-etsy-price="4589298112">£6</span></i></span></a></li>
+<li class="card" style="--k:2;--r:-5deg" data-name="Complete Money System" data-price="£19"><a class="sheet" href="money-system/"><img src="img/shop/4589290093.jpg" srcset="img/thumb/4589290093-480.webp 480w, img/shop/4589290093.jpg 800w" sizes="(min-width: 960px) 430px, 260px" width="800" height="600" alt="Complete Money System: the real spreadsheet, from its Etsy listing" loading="lazy" draggable="false"><span class="lbl"><b>Complete Money System</b><i><span data-etsy-price="4589290093">£19</span></i></span></a></li>
+<li class="card" style="--k:3;--r:6deg" data-name="Debt Payoff Planner" data-price="£6"><a class="sheet" href="debt-payoff-planner/"><img src="img/shop/4589267529.jpg" srcset="img/thumb/4589267529-480.webp 480w, img/shop/4589267529.jpg 800w" sizes="(min-width: 960px) 430px, 260px" width="800" height="600" alt="Debt Payoff Planner: the real spreadsheet, from its Etsy listing" loading="lazy" draggable="false"><span class="lbl"><b>Debt Payoff Planner</b><i><span data-etsy-price="4589267529">£6</span></i></span></a></li>
+<li class="card" style="--k:4;--r:-7deg" data-name="UK Sole Trader Bookkeeping Kit" data-price="£15"><a class="sheet" href="sole-trader-bookkeeping/"><img src="img/shop/4589301590.jpg" srcset="img/thumb/4589301590-480.webp 480w, img/shop/4589301590.jpg 800w" sizes="(min-width: 960px) 430px, 260px" width="800" height="600" alt="UK Sole Trader Bookkeeping Kit: the real spreadsheet, from its Etsy listing" loading="lazy" draggable="false"><span class="lbl"><b>UK Sole Trader Bookkeeping Kit</b><i><span data-etsy-price="4589301590">£15</span></i></span></a></li>
+<li class="card" style="--k:5;--r:3deg" data-name="Everything Bundle" data-price="£60"><a class="sheet" href="everything-bundle/"><img src="img/shop/4589299225.jpg" srcset="img/thumb/4589299225-480.webp 480w, img/shop/4589299225.jpg 800w" sizes="(min-width: 960px) 430px, 260px" width="800" height="600" alt="Everything Bundle: the real spreadsheet, from its Etsy listing" loading="lazy" draggable="false"><span class="lbl"><b>Everything Bundle</b><i><span data-etsy-price="4589299225">£60</span></i></span></a></li>
 </ul>
+<div class="deck-ui">
+<button class="key-sm" type="button" data-prev aria-label="Previous template"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<p class="count" data-count><b>01</b>/06 <span>Swipe the sheets</span></p>
+<button class="key-sm" type="button" data-next aria-label="Next template"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
-<figure class="shot">
-<div class="frame"><img src="img/hero-christmas-sheet.jpg" width="1200" height="628" alt="The Christmas Budget &amp; Gift Planner's Start Here sheet: days to Christmas, budget, spent so far, left to spend, how much to save each week and progress bars."></div>
-<a class="sticker" data-etsy-listing="4608845140" href="https://sortedsheetsshopuk.etsy.com/listing/4608845140" aria-label="Christmas Budget &amp; Gift Planner on Etsy"><span><b><span data-etsy-price="4608845140">£6</span></b><small>on Etsy</small></span></a>
-<figcaption>The real Christmas Budget &amp; Gift Planner, filled in with example data.</figcaption>
-</figure>
+<p class="vh" aria-live="polite" data-deck-announce></p>
 </div>
-</section>
-
-<section class="section" aria-labelledby="featured">
-<div class="wrap">
-<div class="section-head">
-<div>
-<h2 id="featured">Featured templates</h2>
-<p>Real spreadsheets, shown with example data. Etsy takes the payment and sends you the download straight away.</p>
+<!-- /home-deck -->
 </div>
-<a class="btn btn--line" href="shop/"><span>See all <span data-shop-count>43</span> in the shop</span></a>
-</div>
-<div class="products">
-<article class="product c-blush">
-<div class="pic"><a data-product-link="4608845140" href="./christmas-budget-gift-planner/" tabindex="-1" aria-hidden="true"><img src="img/shop/4608845140.jpg" width="800" height="600" alt="Christmas Budget &amp; Gift Planner: the real spreadsheet with example data"></a><span class="price-tag"><span data-etsy-price="4608845140">£6</span></span></div>
-<div class="body">
-<span class="tag">Christmas</span>
-<h3><a data-product-link="4608845140" href="./christmas-budget-gift-planner/">Christmas Budget &amp; Gift Planner</a></h3>
-<p>Every gift, who's over budget, and how much to save each week to cover the rest.</p>
-<span class="spacer"></span>
-<a class="btn btn--navy" data-etsy-listing="4608845140" href="https://sortedsheetsshopuk.etsy.com/listing/4608845140" aria-label="Buy the Christmas Budget &amp; Gift Planner on Etsy">Buy on Etsy</a>
-</div>
-</article>
-<article class="product c-mist">
-<div class="pic"><a data-product-link="4589298112" href="./yearly-budget/" tabindex="-1" aria-hidden="true"><img src="img/shop/4589298112.jpg" width="800" height="600" alt="2027 Yearly Budget Planner: the real spreadsheet with example data"></a><span class="price-tag"><span data-etsy-price="4589298112">£6</span></span></div>
-<div class="body">
-<span class="tag">Ready for 2027</span>
-<h3><a data-product-link="4589298112" href="./yearly-budget/">2027 Yearly Budget Planner</a></h3>
-<p>All 12 months side by side, with a year total and monthly average for every row.</p>
-<span class="spacer"></span>
-<a class="btn btn--navy" data-etsy-listing="4589298112" href="https://sortedsheetsshopuk.etsy.com/listing/4589298112" aria-label="Buy the 2027 Yearly Budget Planner on Etsy">Buy on Etsy</a>
-</div>
-</article>
-<article class="product c-sage">
-<div class="pic"><a data-product-link="4589290093" href="./money-system/" tabindex="-1" aria-hidden="true"><img src="img/shop/4589290093.jpg" width="800" height="600" alt="Complete Money System: the real spreadsheet with example data"></a><span class="price-tag"><span data-etsy-price="4589290093">£19</span></span></div>
-<div class="body">
-<span class="tag">All in one</span>
-<h3><a data-product-link="4589290093" href="./money-system/">Complete Money System</a></h3>
-<p>Log each payment once and your dashboard, budget, savings goals and debts all update.</p>
-<span class="spacer"></span>
-<a class="btn btn--navy" data-etsy-listing="4589290093" href="https://sortedsheetsshopuk.etsy.com/listing/4589290093" aria-label="Buy the Complete Money System on Etsy">Buy on Etsy</a>
-</div>
-</article>
-<article class="product c-sand">
-<div class="pic"><a data-product-link="4589267529" href="./debt-payoff-planner/" tabindex="-1" aria-hidden="true"><img src="img/shop/4589267529.jpg" width="800" height="600" alt="Debt Payoff Planner: the real spreadsheet with example data"></a><span class="price-tag"><span data-etsy-price="4589267529">£6</span></span></div>
-<div class="body">
-<span class="tag">Debts</span>
-<h3><a data-product-link="4589267529" href="./debt-payoff-planner/">Debt Payoff Planner</a></h3>
-<p>Ranks your debts by snowball and avalanche, and shows how many months an extra payment saves.</p>
-<span class="spacer"></span>
-<a class="btn btn--navy" data-etsy-listing="4589267529" href="https://sortedsheetsshopuk.etsy.com/listing/4589267529" aria-label="Buy the Debt Payoff Planner on Etsy">Buy on Etsy</a>
-</div>
-</article>
-<article class="product c-blush">
-<div class="pic"><a data-product-link="4589301590" href="./sole-trader-bookkeeping/" tabindex="-1" aria-hidden="true"><img src="img/shop/4589301590.jpg" width="800" height="600" alt="UK Sole Trader Bookkeeping Kit: the real spreadsheet with example data"></a><span class="price-tag"><span data-etsy-price="4589301590">£15</span></span></div>
-<div class="body">
-<span class="tag">Self-employed</span>
-<h3><a data-product-link="4589301590" href="./sole-trader-bookkeeping/">UK Sole Trader Bookkeeping Kit</a></h3>
-<p>Income, expenses in HMRC's categories, business mileage and an invoice, added up for the tax year.</p>
-<span class="spacer"></span>
-<a class="btn btn--navy" data-etsy-listing="4589301590" href="https://sortedsheetsshopuk.etsy.com/listing/4589301590" aria-label="Buy the UK Sole Trader Bookkeeping Kit on Etsy">Buy on Etsy</a>
-</div>
-</article>
-<article class="product c-mist">
-<div class="pic"><a data-product-link="4589299225" href="./everything-bundle/" tabindex="-1" aria-hidden="true"><img src="img/shop/4589299225.jpg" width="800" height="600" alt="Everything Bundle: 19 spreadsheet templates in one download"></a><span class="price-tag"><span data-etsy-price="4589299225">£60</span><small>save <span data-bundle-save>£85</span></small></span></div>
-<div class="body">
-<span class="tag">19 templates</span>
-<h3><a data-product-link="4589299225" href="./everything-bundle/">Everything Bundle</a></h3>
-<p>All 19 templates in one download, including every one above. <span data-bundle-separately>£145</span> if bought separately.</p>
-<span class="spacer"></span>
-<a class="btn btn--navy" data-etsy-listing="4589299225" href="https://sortedsheetsshopuk.etsy.com/listing/4589299225" aria-label="Buy the Everything Bundle on Etsy">Buy on Etsy</a>
-</div>
-</article>
-</div>
+<p class="hero-btns"><a class="btn btn--ink" href="shop/">Browse the shop</a><a class="btn btn--paper" href="calculators/">Free calculators</a></p>
 </div>
 </section>
 
-<section class="section band band--sun" aria-labelledby="calculators">
+<section class="block home-shop" aria-labelledby="shop-h">
 <div class="wrap">
-<div>
-<h2 id="calculators">Free calculators</h2>
+<header class="sec-top">
+<p class="marker"><b class="num">01</b><span class="num">/03</span></p>
+<h2 id="shop-h">Browse the <i>shop</i></h2>
+<p>Tap a tab to switch section. Every template is a real spreadsheet with example data, and Etsy sends the download straight away.</p>
+</header>
+<!-- home-browse -->
+<div class="browser b-mini" data-browser="home">
+<nav class="tabs" aria-label="Shop sections"><a class="tab t-ink" href="shop/" data-tab="all" aria-current="true"><span>Featured</span></a><a class="tab t-wasabi" href="shop/#budget-and-money" data-tab="budget-and-money"><span>Budget &amp; Money</span> <b>6</b></a><a class="tab t-persimmon" href="shop/#debt-and-savings" data-tab="debt-and-savings"><span>Debt &amp; Savings</span> <b>2</b></a><a class="tab t-blue" href="shop/#life-planners" data-tab="life-planners"><span>Life Planners</span> <b>8</b></a><a class="tab t-jade" href="shop/#small-business" data-tab="small-business"><span>Small Business</span> <b>13</b></a><a class="tab t-teal" href="shop/#family-and-care" data-tab="family-and-care"><span>Family &amp; Care</span> <b>4</b></a><a class="tab t-plum" href="shop/#bundles" data-tab="bundles"><span>Bundles</span> <b>5</b></a><a class="tab t-peach" href="shop/#custom" data-tab="custom"><span>Custom</span> <b>3</b></a><a class="tab t-paper" href="shop/#more" data-tab="more"><span>More</span> <b>2</b></a></nav>
+<div class="panel" data-panel="all">
+<ul class="prows">
+<li class="prow" data-group="budget-and-money" data-price="6" data-order="0"><img class="pthumb" src="img/shop/4608845140.jpg" srcset="img/thumb/4608845140-200.webp 200w, img/thumb/4608845140-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4608845140" href="./christmas-budget-gift-planner/">Christmas Budget &amp; Gift Planner</a></h3>
+<p class="etsy-title" data-etsy-title="4608845140">Christmas Gift Tracker and Budget Planner UK, Gift List Spreadsheet by Person, Christmas Food Shop and Card List, Excel &amp; Google Sheets</p></div><span class="pcat t-wasabi">Budget &amp; Money</span><span class="pprice"><span data-etsy-price="4608845140">£6</span></span><a class="pbuy" data-etsy-listing="4608845140" href="https://sortedsheetsshopuk.etsy.com/listing/4608845140" aria-label="Buy Christmas Budget &amp; Gift Planner on Etsy">Buy</a></li>
+<li class="prow" data-group="budget-and-money" data-price="6" data-order="1"><img class="pthumb" src="img/shop/4589298112.jpg" srcset="img/thumb/4589298112-200.webp 200w, img/thumb/4589298112-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589298112" href="./yearly-budget/">Yearly Budget Planner</a></h3>
+<p class="etsy-title" data-etsy-title="4589298112">2027 Budget Planner UK, Yearly Budget Spreadsheet, 12 Month Budget, Annual Income and Spending Tracker, Savings Rate, Excel &amp; Google Sheets</p></div><span class="pcat t-wasabi">Budget &amp; Money</span><span class="pprice"><span data-etsy-price="4589298112">£6</span></span><a class="pbuy" data-etsy-listing="4589298112" href="https://sortedsheetsshopuk.etsy.com/listing/4589298112" aria-label="Buy Yearly Budget Planner on Etsy">Buy</a></li>
+<li class="prow" data-group="budget-and-money" data-price="19" data-order="2"><img class="pthumb" src="img/shop/4589290093.jpg" srcset="img/thumb/4589290093-200.webp 200w, img/thumb/4589290093-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589290093" href="./money-system/">Complete Money System</a></h3>
+<p class="etsy-title" data-etsy-title="4589290093">2027 Budget Spreadsheet, All in One Money System, Budget Dashboard, Savings and Debt Tracker, Excel &amp; Google Sheets Finance Planner</p></div><span class="pcat t-wasabi">Budget &amp; Money</span><span class="pprice"><span data-etsy-price="4589290093">£19</span></span><a class="pbuy" data-etsy-listing="4589290093" href="https://sortedsheetsshopuk.etsy.com/listing/4589290093" aria-label="Buy Complete Money System on Etsy">Buy</a></li>
+<li class="prow" data-group="debt-and-savings" data-price="6" data-order="3"><img class="pthumb" src="img/shop/4589267529.jpg" srcset="img/thumb/4589267529-200.webp 200w, img/thumb/4589267529-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589267529" href="./debt-payoff-planner/">Debt Payoff Planner</a></h3>
+<p class="etsy-title" data-etsy-title="4589267529">Debt Payoff Planner Spreadsheet, Debt Snowball and Avalanche Tracker, Debt Free Excel and Google Sheets Template, Pastel Debt Tracker</p></div><span class="pcat t-persimmon">Debt &amp; Savings</span><span class="pprice"><span data-etsy-price="4589267529">£6</span></span><a class="pbuy" data-etsy-listing="4589267529" href="https://sortedsheetsshopuk.etsy.com/listing/4589267529" aria-label="Buy Debt Payoff Planner on Etsy">Buy</a></li>
+<li class="prow" data-group="small-business" data-price="15" data-order="4"><img class="pthumb" src="img/shop/4589301590.jpg" srcset="img/thumb/4589301590-200.webp 200w, img/thumb/4589301590-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589301590" href="./sole-trader-bookkeeping/">UK Sole Trader Bookkeeping Kit</a></h3>
+<p class="etsy-title" data-etsy-title="4589301590">Self Assessment Spreadsheet UK, Sole Trader Bookkeeping, HMRC Expense Categories, Mileage and Use of Home, Excel &amp; Google Sheets</p></div><span class="pcat t-jade">Small Business</span><span class="pprice"><span data-etsy-price="4589301590">£15</span></span><a class="pbuy" data-etsy-listing="4589301590" href="https://sortedsheetsshopuk.etsy.com/listing/4589301590" aria-label="Buy UK Sole Trader Bookkeeping Kit on Etsy">Buy</a></li>
+<li class="prow" data-group="bundles" data-price="60" data-order="5"><img class="pthumb" src="img/shop/4589299225.jpg" srcset="img/thumb/4589299225-200.webp 200w, img/thumb/4589299225-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589299225" href="./everything-bundle/">Everything Bundle</a></h3>
+<p class="etsy-title" data-etsy-title="4589299225">Spreadsheet Bundle, 19 Excel &amp; Google Sheets Templates, Budget Planner, Debt Tracker, Invoice, Wedding, Meal Planner and Bookkeeping</p></div><span class="pcat t-plum">Bundles</span><span class="pprice"><span data-etsy-price="4589299225">£60</span></span><a class="pbuy" data-etsy-listing="4589299225" href="https://sortedsheetsshopuk.etsy.com/listing/4589299225" aria-label="Buy Everything Bundle on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/">See all <span data-shop-count>43</span> in the shop</a></p>
+</div>
+<div class="panel" data-panel="budget-and-money" hidden>
+<ul class="prows">
+<li class="prow" data-group="budget-and-money" data-price="6" data-order="0"><img class="pthumb" src="img/shop/4608845140.jpg" srcset="img/thumb/4608845140-200.webp 200w, img/thumb/4608845140-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4608845140" href="./christmas-budget-gift-planner/">Christmas Budget &amp; Gift Planner</a></h3>
+<p class="etsy-title" data-etsy-title="4608845140">Christmas Gift Tracker and Budget Planner UK, Gift List Spreadsheet by Person, Christmas Food Shop and Card List, Excel &amp; Google Sheets</p></div><span class="pcat t-wasabi">Budget &amp; Money</span><span class="pprice"><span data-etsy-price="4608845140">£6</span></span><a class="pbuy" data-etsy-listing="4608845140" href="https://sortedsheetsshopuk.etsy.com/listing/4608845140" aria-label="Buy Christmas Budget &amp; Gift Planner on Etsy">Buy</a></li>
+<li class="prow" data-group="budget-and-money" data-price="19" data-order="1"><img class="pthumb" src="img/shop/4589290093.jpg" srcset="img/thumb/4589290093-200.webp 200w, img/thumb/4589290093-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589290093" href="./money-system/">Complete Money System</a></h3>
+<p class="etsy-title" data-etsy-title="4589290093">2027 Budget Spreadsheet, All in One Money System, Budget Dashboard, Savings and Debt Tracker, Excel &amp; Google Sheets Finance Planner</p></div><span class="pcat t-wasabi">Budget &amp; Money</span><span class="pprice"><span data-etsy-price="4589290093">£19</span></span><a class="pbuy" data-etsy-listing="4589290093" href="https://sortedsheetsshopuk.etsy.com/listing/4589290093" aria-label="Buy Complete Money System on Etsy">Buy</a></li>
+<li class="prow" data-group="budget-and-money" data-price="6" data-order="2"><img class="pthumb" src="img/shop/4589298112.jpg" srcset="img/thumb/4589298112-200.webp 200w, img/thumb/4589298112-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589298112" href="./yearly-budget/">Yearly Budget Planner</a></h3>
+<p class="etsy-title" data-etsy-title="4589298112">2027 Budget Planner UK, Yearly Budget Spreadsheet, 12 Month Budget, Annual Income and Spending Tracker, Savings Rate, Excel &amp; Google Sheets</p></div><span class="pcat t-wasabi">Budget &amp; Money</span><span class="pprice"><span data-etsy-price="4589298112">£6</span></span><a class="pbuy" data-etsy-listing="4589298112" href="https://sortedsheetsshopuk.etsy.com/listing/4589298112" aria-label="Buy Yearly Budget Planner on Etsy">Buy</a></li>
+<li class="prow" data-group="budget-and-money" data-price="4" data-order="3"><img class="pthumb" src="img/shop/4589282773.jpg" srcset="img/thumb/4589282773-200.webp 200w, img/thumb/4589282773-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589282773" href="./50-30-20-budget/">50/30/20 Budget Calculator</a></h3>
+<p class="etsy-title" data-etsy-title="4589282773">50 30 20 Budget Spreadsheet, Needs Wants Savings Calculator, Excel &amp; Google Sheets Budget Template, Simple Budget Planner</p></div><span class="pcat t-wasabi">Budget &amp; Money</span><span class="pprice"><span data-etsy-price="4589282773">£4</span></span><a class="pbuy" data-etsy-listing="4589282773" href="https://sortedsheetsshopuk.etsy.com/listing/4589282773" aria-label="Buy 50/30/20 Budget Calculator on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=budget-and-money">See all 6 in Budget &amp; Money</a></p>
+</div>
+<div class="panel" data-panel="debt-and-savings" hidden>
+<ul class="prows">
+<li class="prow" data-group="debt-and-savings" data-price="5" data-order="0"><img class="pthumb" src="img/shop/4589290620.jpg" srcset="img/thumb/4589290620-200.webp 200w, img/thumb/4589290620-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589290620" href="./savings-tracker/">Savings Goals &amp; 52-Week Challenge</a></h3>
+<p class="etsy-title" data-etsy-title="4589290620">Savings Goals Tracker Spreadsheet, 52 Week Savings Challenge, Sinking Funds Tracker, Excel &amp; Google Sheets Savings Template</p></div><span class="pcat t-persimmon">Debt &amp; Savings</span><span class="pprice"><span data-etsy-price="4589290620">£5</span></span><a class="pbuy" data-etsy-listing="4589290620" href="https://sortedsheetsshopuk.etsy.com/listing/4589290620" aria-label="Buy Savings Goals &amp; 52-Week Challenge on Etsy">Buy</a></li>
+<li class="prow" data-group="debt-and-savings" data-price="6" data-order="1"><img class="pthumb" src="img/shop/4589267529.jpg" srcset="img/thumb/4589267529-200.webp 200w, img/thumb/4589267529-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589267529" href="./debt-payoff-planner/">Debt Payoff Planner</a></h3>
+<p class="etsy-title" data-etsy-title="4589267529">Debt Payoff Planner Spreadsheet, Debt Snowball and Avalanche Tracker, Debt Free Excel and Google Sheets Template, Pastel Debt Tracker</p></div><span class="pcat t-persimmon">Debt &amp; Savings</span><span class="pprice"><span data-etsy-price="4589267529">£6</span></span><a class="pbuy" data-etsy-listing="4589267529" href="https://sortedsheetsshopuk.etsy.com/listing/4589267529" aria-label="Buy Debt Payoff Planner on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=debt-and-savings">Open Debt &amp; Savings in the shop</a></p>
+</div>
+<div class="panel" data-panel="life-planners" hidden>
+<ul class="prows">
+<li class="prow" data-group="life-planners" data-price="5" data-order="0"><img class="pthumb" src="img/shop/4616355104.jpg" srcset="img/thumb/4616355104-200.webp 200w, img/thumb/4616355104-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4616355104" href="./2027-digital-planner-uk/">2027 Digital Planner UK, hyperlinked PDF</a></h3>
+<p class="etsy-title" data-etsy-title="4616355104">2027 Digital Planner UK, Hyperlinked GoodNotes and Notability Planner, iPad Planner with Daily, Weekly and Monthly Pages, UK Bank Holidays</p></div><span class="pcat t-blue">Life Planners</span><span class="pprice"><span data-etsy-price="4616355104">£5</span></span><a class="pbuy" data-etsy-listing="4616355104" href="https://sortedsheetsshopuk.etsy.com/listing/4616355104" aria-label="Buy 2027 Digital Planner UK, hyperlinked PDF on Etsy">Buy</a></li>
+<li class="prow" data-group="life-planners" data-price="4" data-order="1"><img class="pthumb" src="img/shop/4616355002.jpg" srcset="img/thumb/4616355002-200.webp 200w, img/thumb/4616355002-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4616355002" href="./2027-printable-planner-uk/">2027 Printable Planner UK, A4 + A5 PDF</a></h3>
+<p class="etsy-title" data-etsy-title="4616355002">2027 Planner Printable UK, A4 and A5 Weekly and Monthly Planner, UK Bank Holidays, Monthly Budget Pages, Monday Start, Print at Home PDF</p></div><span class="pcat t-blue">Life Planners</span><span class="pprice"><span data-etsy-price="4616355002">£4</span></span><a class="pbuy" data-etsy-listing="4616355002" href="https://sortedsheetsshopuk.etsy.com/listing/4616355002" aria-label="Buy 2027 Printable Planner UK, A4 + A5 PDF on Etsy">Buy</a></li>
+<li class="prow" data-group="life-planners" data-price="6" data-order="2"><img class="pthumb" src="img/shop/4616309895.jpg" srcset="img/thumb/4616309895-200.webp 200w, img/thumb/4616309895-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4616309895" href="./gcse-a-level-revision-planner/">GCSE &amp; A-level Revision Planner</a></h3>
+<p class="etsy-title" data-etsy-title="4616309895">GCSE Revision Planner Spreadsheet, A Level Revision Timetable, Exam Countdown and Study Tracker, Past Paper Grades, Excel &amp; Google Sheets</p></div><span class="pcat t-blue">Life Planners</span><span class="pprice"><span data-etsy-price="4616309895">£6</span></span><a class="pbuy" data-etsy-listing="4616309895" href="https://sortedsheetsshopuk.etsy.com/listing/4616309895" aria-label="Buy GCSE &amp; A-level Revision Planner on Etsy">Buy</a></li>
+<li class="prow" data-group="life-planners" data-price="9" data-order="3"><img class="pthumb" src="img/shop/4589306920.jpg" srcset="img/thumb/4589306920-200.webp 200w, img/thumb/4589306920-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589306920" href="./meal-planner/">Meal Planner &amp; Grocery List</a></h3>
+<p class="etsy-title" data-etsy-title="4589306920">Meal Planner Spreadsheet with Automatic Grocery List, Weekly Meal Plan and Shopping List, Excel and Google Sheets Food Budget Template</p></div><span class="pcat t-blue">Life Planners</span><span class="pprice"><span data-etsy-price="4589306920">£9</span></span><a class="pbuy" data-etsy-listing="4589306920" href="https://sortedsheetsshopuk.etsy.com/listing/4589306920" aria-label="Buy Meal Planner &amp; Grocery List on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=life-planners">See all 8 in Life Planners</a></p>
+</div>
+<div class="panel" data-panel="small-business" hidden>
+<ul class="prows">
+<li class="prow" data-group="small-business" data-price="10" data-order="0"><img class="pthumb" src="img/shop/4608558491.jpg" srcset="img/thumb/4608558491-200.webp 200w, img/thumb/4608558491-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4608558491" href="./club-subs-membership-tracker/">Club Subs &amp; Membership</a></h3>
+<p class="etsy-title" data-etsy-title="4608558491">Club Membership Tracker, Subs and Fees Spreadsheet, Who Owes List, Treasurer Template for Sports Clubs and Groups, Excel &amp; Google Sheets</p></div><span class="pcat t-jade">Small Business</span><span class="pprice"><span data-etsy-price="4608558491">£10</span></span><a class="pbuy" data-etsy-listing="4608558491" href="https://sortedsheetsshopuk.etsy.com/listing/4608558491" aria-label="Buy Club Subs &amp; Membership on Etsy">Buy</a></li>
+<li class="prow" data-group="small-business" data-price="10" data-order="1"><img class="pthumb" src="img/shop/4619685899.jpg" srcset="img/thumb/4619685899-200.webp 200w, img/thumb/4619685899-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619685899" href="./staff-rota-wages/">Staff Rota &amp; Wages</a></h3>
+<p class="etsy-title" data-etsy-title="4619685899">Staff Rota Template UK with Wages, Weekly Rota Spreadsheet, Minimum Wage and Holiday Tracker, Cafe Shop Salon, Excel &amp; Google Sheets</p></div><span class="pcat t-jade">Small Business</span><span class="pprice"><span data-etsy-price="4619685899">£10</span></span><a class="pbuy" data-etsy-listing="4619685899" href="https://sortedsheetsshopuk.etsy.com/listing/4619685899" aria-label="Buy Staff Rota &amp; Wages on Etsy">Buy</a></li>
+<li class="prow" data-group="small-business" data-price="10" data-order="2"><img class="pthumb" src="img/shop/4619685757.jpg" srcset="img/thumb/4619685757-200.webp 200w, img/thumb/4619685757-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619685757" href="./till-cash-up-sheet/">Daily Till Cash-Up</a></h3>
+<p class="etsy-title" data-etsy-title="4619685757">Till Cash Up Sheet, Daily Cash Up Spreadsheet UK, Till Float and Takings Tracker, Over Short Log, Cafe Shop Bar, Excel &amp; Google Sheets</p></div><span class="pcat t-jade">Small Business</span><span class="pprice"><span data-etsy-price="4619685757">£10</span></span><a class="pbuy" data-etsy-listing="4619685757" href="https://sortedsheetsshopuk.etsy.com/listing/4619685757" aria-label="Buy Daily Till Cash-Up on Etsy">Buy</a></li>
+<li class="prow" data-group="small-business" data-price="8" data-order="3"><img class="pthumb" src="img/shop/4619693306.jpg" srcset="img/thumb/4619693306-200.webp 200w, img/thumb/4619693306-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619693306" href="./childminder-hours-invoices/">Childminder Hours &amp; Invoices</a></h3>
+<p class="etsy-title" data-etsy-title="4619693306">Childminder Invoice Spreadsheet UK, Childcare Hours and Attendance Tracker, Funded Hours and Payments, Excel &amp; Google Sheets</p></div><span class="pcat t-jade">Small Business</span><span class="pprice"><span data-etsy-price="4619693306">£8</span></span><a class="pbuy" data-etsy-listing="4619693306" href="https://sortedsheetsshopuk.etsy.com/listing/4619693306" aria-label="Buy Childminder Hours &amp; Invoices on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=small-business">See all 13 in Small Business</a></p>
+</div>
+<div class="panel" data-panel="family-and-care" hidden>
+<ul class="prows">
+<li class="prow" data-group="family-and-care" data-price="12" data-order="0"><img class="pthumb" src="img/shop/4619679355.jpg" srcset="img/thumb/4619679355-200.webp 200w, img/thumb/4619679355-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619679355" href="./executor-estate-record/">Executor &amp; Estate Record</a></h3>
+<p class="etsy-title" data-etsy-title="4619679355">Executor Spreadsheet UK, Estate Accounts and Probate Checklist, Inheritance Tax Estimate, After a Death Organiser, Excel &amp; Google Sheets</p></div><span class="pcat t-teal">Family &amp; Care</span><span class="pprice"><span data-etsy-price="4619679355">£12</span></span><a class="pbuy" data-etsy-listing="4619679355" href="https://sortedsheetsshopuk.etsy.com/listing/4619679355" aria-label="Buy Executor &amp; Estate Record on Etsy">Buy</a></li>
+<li class="prow" data-group="family-and-care" data-price="15" data-order="1"><img class="pthumb" src="img/shop/4589833979.jpg" srcset="img/thumb/4589833979-200.webp 200w, img/thumb/4589833979-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589833979" href="./inheritance-tax-gift-record/">Inheritance Tax Gift Record</a></h3>
+<p class="etsy-title" data-etsy-title="4589833979">Inheritance Tax Gift Record UK, 7 Year Rule Gift Tracker, Gifts From Surplus Income Log, IHT403, Estate Planning Spreadsheet, Excel</p></div><span class="pcat t-teal">Family &amp; Care</span><span class="pprice"><span data-etsy-price="4589833979">£15</span></span><a class="pbuy" data-etsy-listing="4589833979" href="https://sortedsheetsshopuk.etsy.com/listing/4589833979" aria-label="Buy Inheritance Tax Gift Record on Etsy">Buy</a></li>
+<li class="prow" data-group="family-and-care" data-price="9" data-order="2"><img class="pthumb" src="img/shop/4589829859.jpg" srcset="img/thumb/4589829859-200.webp 200w, img/thumb/4589829859-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589829859" href="./care-home-fees-runway/">Care Home Fees Runway Calculator</a></h3>
+<p class="etsy-title" data-etsy-title="4589829859">Care Home Fees Calculator UK, How Long Will Savings Last in a Care Home, Self Funder Planner, Elderly Parent Care Costs, Excel &amp; Sheets</p></div><span class="pcat t-teal">Family &amp; Care</span><span class="pprice"><span data-etsy-price="4589829859">£9</span></span><a class="pbuy" data-etsy-listing="4589829859" href="https://sortedsheetsshopuk.etsy.com/listing/4589829859" aria-label="Buy Care Home Fees Runway Calculator on Etsy">Buy</a></li>
+<li class="prow" data-group="family-and-care" data-price="12" data-order="3"><img class="pthumb" src="img/shop/4589835548.jpg" srcset="img/thumb/4589835548-200.webp 200w, img/thumb/4589835548-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589835548" href="./power-of-attorney-record-keeper/">UK Power of Attorney Record Keeper</a></h3>
+<p class="etsy-title" data-etsy-title="4589835548">Lasting Power of Attorney Record Keeper UK, LPA Accounts Spreadsheet, Attorney Gifts and Expenses Log, Elderly Parent Finances, Excel</p></div><span class="pcat t-teal">Family &amp; Care</span><span class="pprice"><span data-etsy-price="4589835548">£12</span></span><a class="pbuy" data-etsy-listing="4589835548" href="https://sortedsheetsshopuk.etsy.com/listing/4589835548" aria-label="Buy UK Power of Attorney Record Keeper on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=family-and-care">Open Family &amp; Care in the shop</a></p>
+</div>
+<div class="panel" data-panel="bundles" hidden>
+<ul class="prows">
+<li class="prow" data-group="bundles" data-price="12" data-order="0"><img class="pthumb" src="img/shop/4619689783.jpg" srcset="img/thumb/4619689783-200.webp 200w, img/thumb/4619689783-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619689783" href="./christmas-new-year-bundle/">Christmas &amp; New Year Bundle</a></h3>
+<p class="etsy-title" data-etsy-title="4619689783">Christmas Budget Planner and 2027 Budget Spreadsheet Bundle UK, Gift Tracker, Yearly Budget, 52 Week Challenge, Excel &amp; Google Sheets</p></div><span class="pcat t-plum">Bundles</span><span class="pprice"><span data-etsy-price="4619689783">£12</span></span><a class="pbuy" data-etsy-listing="4619689783" href="https://sortedsheetsshopuk.etsy.com/listing/4619689783" aria-label="Buy Christmas &amp; New Year Bundle on Etsy">Buy</a></li>
+<li class="prow" data-group="bundles" data-price="29" data-order="1"><img class="pthumb" src="img/shop/4619697530.jpg" srcset="img/thumb/4619697530-200.webp 200w, img/thumb/4619697530-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619697530" href="./small-business-kit/">Small Business Kit</a></h3>
+<p class="etsy-title" data-etsy-title="4619697530">Small Business Spreadsheet Bundle UK, Sole Trader Bookkeeping, Invoice Template, Quote Tracker, Income and Expenses, Excel &amp; Google Sheets</p></div><span class="pcat t-plum">Bundles</span><span class="pprice"><span data-etsy-price="4619697530">£29</span></span><a class="pbuy" data-etsy-listing="4619697530" href="https://sortedsheetsshopuk.etsy.com/listing/4619697530" aria-label="Buy Small Business Kit on Etsy">Buy</a></li>
+<li class="prow" data-group="bundles" data-price="29" data-order="2"><img class="pthumb" src="img/shop/4619697350.jpg" srcset="img/thumb/4619697350-200.webp 200w, img/thumb/4619697350-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619697350" href="./family-care-kit/">Family &amp; Care Kit</a></h3>
+<p class="etsy-title" data-etsy-title="4619697350">Power of Attorney Spreadsheet Bundle UK, Care Home Fees Calculator, Inheritance Tax Gift Record, Ageing Parents Kit, Excel &amp; Google Sheets</p></div><span class="pcat t-plum">Bundles</span><span class="pprice"><span data-etsy-price="4619697350">£29</span></span><a class="pbuy" data-etsy-listing="4619697350" href="https://sortedsheetsshopuk.etsy.com/listing/4619697350" aria-label="Buy Family &amp; Care Kit on Etsy">Buy</a></li>
+<li class="prow" data-group="bundles" data-price="14" data-order="3"><img class="pthumb" src="img/shop/4619689235.jpg" srcset="img/thumb/4619689235-200.webp 200w, img/thumb/4619689235-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4619689235" href="./budget-starter-bundle/">Budget Starter Bundle</a></h3>
+<p class="etsy-title" data-etsy-title="4619689235">Budget Spreadsheet Bundle UK, Monthly Budget Planner, 50 30 20 Budget, Savings Goals Tracker, Debt Payoff Planner, Excel &amp; Google Sheets</p></div><span class="pcat t-plum">Bundles</span><span class="pprice"><span data-etsy-price="4619689235">£14</span></span><a class="pbuy" data-etsy-listing="4619689235" href="https://sortedsheetsshopuk.etsy.com/listing/4619689235" aria-label="Buy Budget Starter Bundle on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=bundles">See all 5 in Bundles</a></p>
+</div>
+<div class="panel" data-panel="custom" hidden>
+<ul class="prows">
+<li class="prow" data-group="custom" data-price="40" data-order="0"><img class="pthumb" src="img/shop/4594107929.jpg" srcset="img/thumb/4594107929-200.webp 200w, img/thumb/4594107929-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4594107929" href="./custom-spreadsheet-simple/">Custom spreadsheet: Simple</a></h3>
+<p class="etsy-title" data-etsy-title="4594107929">Custom Spreadsheet Made For You, Simple 1 Tab Package, Bespoke Excel &amp; Google Sheets Template, Business Tracker, Budget, Personalised Sheet</p></div><span class="pcat t-peach">Custom</span><span class="pprice"><span data-etsy-price="4594107929">£40</span></span><a class="pbuy" data-etsy-listing="4594107929" href="https://sortedsheetsshopuk.etsy.com/listing/4594107929" aria-label="Buy Custom spreadsheet: Simple on Etsy">Buy</a></li>
+<li class="prow" data-group="custom" data-price="75" data-order="1"><img class="pthumb" src="img/shop/4594126784.jpg" srcset="img/thumb/4594126784-200.webp 200w, img/thumb/4594126784-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4594126784" href="./custom-spreadsheet-standard/">Custom spreadsheet: Standard</a></h3>
+<p class="etsy-title" data-etsy-title="4594126784">Custom Google Sheets Dashboard Made For You, Standard 3 Tab Package, Bespoke Excel Spreadsheet, Business Tracker, Budget, Personalised Sheet</p></div><span class="pcat t-peach">Custom</span><span class="pprice"><span data-etsy-price="4594126784">£75</span></span><a class="pbuy" data-etsy-listing="4594126784" href="https://sortedsheetsshopuk.etsy.com/listing/4594126784" aria-label="Buy Custom spreadsheet: Standard on Etsy">Buy</a></li>
+<li class="prow" data-group="custom" data-price="110" data-order="2"><img class="pthumb" src="img/shop/4594127658.jpg" srcset="img/thumb/4594127658-200.webp 200w, img/thumb/4594127658-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4594127658" href="./custom-spreadsheet-premium/">Custom spreadsheet: Premium</a></h3>
+<p class="etsy-title" data-etsy-title="4594127658">Custom Excel Spreadsheet System Made For You, Premium 6 Tab Package with Charts, Bespoke Google Sheets Dashboard, Business Tracker, Budget</p></div><span class="pcat t-peach">Custom</span><span class="pprice"><span data-etsy-price="4594127658">£110</span></span><a class="pbuy" data-etsy-listing="4594127658" href="https://sortedsheetsshopuk.etsy.com/listing/4594127658" aria-label="Buy Custom spreadsheet: Premium on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=custom">Open Custom in the shop</a></p>
+</div>
+<div class="panel" data-panel="more" hidden>
+<ul class="prows">
+<li class="prow" data-group="more" data-price="4" data-order="0"><img class="pthumb" src="img/shop/4589278091.jpg" srcset="img/thumb/4589278091-200.webp 200w, img/thumb/4589278091-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589278091" href="./content-calendar/">Social Media Content Calendar</a></h3>
+<p class="etsy-title" data-etsy-title="4589278091">Social Media Content Calendar Spreadsheet, Instagram TikTok Content Planner, Excel &amp; Google Sheets Small Business Post Planner</p></div><span class="pcat t-paper">More</span><span class="pprice"><span data-etsy-price="4589278091">£4</span></span><a class="pbuy" data-etsy-listing="4589278091" href="https://sortedsheetsshopuk.etsy.com/listing/4589278091" aria-label="Buy Social Media Content Calendar on Etsy">Buy</a></li>
+<li class="prow" data-group="more" data-price="4" data-order="1"><img class="pthumb" src="img/shop/4589283194.jpg" srcset="img/thumb/4589283194-200.webp 200w, img/thumb/4589283194-480.webp 480w" sizes="84px" width="800" height="600" alt="" loading="lazy" decoding="async"><div class="pmain"><h3><a data-product-link="4589283194" href="./workout-log/">Workout &amp; Progress Log</a></h3>
+<p class="etsy-title" data-etsy-title="4589283194">Workout Log Spreadsheet, Gym Progress Tracker, Progressive Overload Log, Excel &amp; Google Sheets Fitness Tracker Template</p></div><span class="pcat t-paper">More</span><span class="pprice"><span data-etsy-price="4589283194">£4</span></span><a class="pbuy" data-etsy-listing="4589283194" href="https://sortedsheetsshopuk.etsy.com/listing/4589283194" aria-label="Buy Workout &amp; Progress Log on Etsy">Buy</a></li>
+</ul>
+<p class="seeall"><a class="btn btn--ink" href="shop/?tab=more">Open More in the shop</a></p>
+</div>
+<div class="statusbar" data-status><span class="ready">Ready</span><span>Count <b class="num" data-count>6</b></span><span>Sum <b class="num" data-sum>£112.00</b></span><span class="avg">Average <b class="num" data-avg>£18.67</b></span></div>
+</div>
+<!-- /home-browse -->
+</div>
+</section>
+
+<section class="block home-calcs" aria-labelledby="calc-h">
+<div class="wrap">
+<header class="sec-top">
+<p class="marker"><b class="num">02</b><span class="num">/03</span></p>
+<h2 id="calc-h">Free <i>calculators</i></h2>
 <p>Quick answers to common UK money questions. Free, no sign-up, and every figure shows its source and the date it was checked.</p>
-<a class="btn btn--navy" href="calculators/">See all free calculators</a>
+</header>
+<div class="calc-grid">
+<form class="livecell" id="xmas" aria-labelledby="live-h" autocomplete="off" novalidate>
+<h3 id="live-h">Try one: <i>your Christmas</i></h3>
+<p class="hint">Yellow cells are yours to type in.</p>
+<div class="lc-sheet">
+<div class="lc-row"><label for="lc-budget">Christmas budget</label><span class="lc-in"><span aria-hidden="true">£</span><input id="lc-budget" inputmode="decimal" value="600" spellcheck="false"></span></div>
+<div class="lc-row"><label for="lc-saved">Saved so far</label><span class="lc-in"><span aria-hidden="true">£</span><input id="lc-saved" inputmode="decimal" value="150" spellcheck="false"></span></div>
+<div class="lc-row"><span id="lc-weeks-l">Weeks to Christmas Day</span><output class="num" aria-labelledby="lc-weeks-l" data-lc-weeks>5</output></div>
+<div class="lc-row lc-result"><span id="lc-pw-l">Put by each week</span><output class="num" aria-labelledby="lc-pw-l" data-lc-perweek>£90.00</output></div>
 </div>
-<ul class="chips">
-<li><a href="care-home-fees-calculator/">Care home fees <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="inheritance-tax-gifts-calculator/">Inheritance tax on gifts <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="christmas-savings-calculator/">Christmas savings <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="debt-payoff-calculator/">Debt payoff: snowball or avalanche <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="gift-aid-calculator/">Gift Aid <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="business-mileage-calculator/">Business mileage <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="self-assessment-tax-calculator/">Self Assessment bill 2025/26 <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-</ul>
+<p class="lc-sentence" aria-live="polite" data-lc-sentence>Save £90.00 a week for 5 weeks to find the £450.00 still to come.</p>
+<noscript><p class="lc-sentence">These figures are for 20 November 2026. Turn on JavaScript to try your own.</p></noscript>
+<p class="lc-link"><a href="christmas-savings-calculator/">The full Christmas savings calculator <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+</form>
+<nav class="contents" aria-label="Free calculators">
+<ol>
+<li><a href="christmas-savings-calculator/"><span class="n num">01</span><span class="t">Christmas savings</span><span class="dots" aria-hidden="true"></span><span class="d">How much to put by each week</span></a></li>
+<li><a href="debt-payoff-calculator/"><span class="n num">02</span><span class="t">Debt payoff</span><span class="dots" aria-hidden="true"></span><span class="d">Snowball or avalanche</span></a></li>
+<li><a href="business-mileage-calculator/"><span class="n num">03</span><span class="t">Business mileage</span><span class="dots" aria-hidden="true"></span><span class="d">The flat-rate claim, worked out</span></a></li>
+<li><a href="self-assessment-tax-calculator/"><span class="n num">04</span><span class="t">Self Assessment</span><span class="dots" aria-hidden="true"></span><span class="d">The 2025/26 bill and payments on account</span></a></li>
+<li><a href="care-home-fees-calculator/"><span class="n num">05</span><span class="t">Care home fees</span><span class="dots" aria-hidden="true"></span><span class="d">How long savings last</span></a></li>
+<li><a href="inheritance-tax-gifts-calculator/"><span class="n num">06</span><span class="t">Inheritance tax on gifts</span><span class="dots" aria-hidden="true"></span><span class="d">The 7-year rule</span></a></li>
+<li><a href="gift-aid-calculator/"><span class="n num">07</span><span class="t">Gift Aid</span><span class="dots" aria-hidden="true"></span><span class="d">What a charity can claim on top</span></a></li>
+</ol>
+<p class="fig"><b>Fig. 2</b> <i>Each one does the same sums as one of the spreadsheets.</i> <a href="calculators/">All the calculators</a></p>
+</nav>
+</div>
 </div>
 </section>
 
-<section class="section" aria-labelledby="custom-h">
+<section class="block home-custom" aria-labelledby="custom-h">
 <div class="wrap">
-<div class="custom-box">
-<div>
-<h2 id="custom-h">Need something custom?</h2>
-<p>Still keeping track of something on paper, or in a spreadsheet that's got messy? I'll build you one that does the sums, in Excel and Google Sheets. Message me on Etsy first and I'll suggest the package that fits.</p>
-<ul class="ideas" aria-label="Ideas">
-<li>Quotes and invoices</li><li>Club subs</li><li>Staff rota</li><li>Stock and orders</li><li>Shared-house budget</li>
-</ul>
-<p><a href="custom/">See examples of what I can build</a></p>
+<div class="ticket">
+<div class="t-main">
+<p class="marker"><b class="num">03</b><span class="num">/03</span></p>
+<h2 id="custom-h">Need something <i>custom?</i></h2>
+<p class="pull">What do you still keep track of on paper?</p>
+<p>Or in a spreadsheet that's got messy? Tell me what it's for and I'll build it in Excel and Google Sheets with the formulas done. Message me on Etsy first and I'll suggest the package that fits.</p>
+<p><a class="btn btn--ink" href="custom/">See what I can build</a></p>
 </div>
-<div class="from">
-<span class="big-price"><small>From</small><span data-etsy-price="4594107929">£40</span></span>
-<p>A one-tab sheet with formulas, totals, drop-down lists and one round of changes.</p>
-<a class="btn btn--navy" data-etsy-listing="4594107929" href="https://sortedsheetsshopuk.etsy.com/listing/4594107929">Custom sheet on Etsy</a>
-<a class="alt" data-etsy-listing="4594126784" href="https://sortedsheetsshopuk.etsy.com/listing/4594126784">Up to 3 tabs with a summary or dashboard: <span data-etsy-price="4594126784">£75</span></a>
+<div class="t-stub">
+<p class="from"><small>From</small><span class="num" data-etsy-price="4594107929">£40</span></p>
+<ul>
+<li><a data-etsy-listing="4594107929" href="https://sortedsheetsshopuk.etsy.com/listing/4594107929">Simple</a> <span class="num" data-etsy-price="4594107929">£40</span><span>1 tab, formulas and totals, drop-downs</span></li>
+<li><a data-etsy-listing="4594126784" href="https://sortedsheetsshopuk.etsy.com/listing/4594126784">Standard</a> <span class="num" data-etsy-price="4594126784">£75</span><span>Up to 3 tabs and a summary or dashboard</span></li>
+<li><a data-etsy-listing="4594127658" href="https://sortedsheetsshopuk.etsy.com/listing/4594127658">Premium</a> <span class="num" data-etsy-price="4594127658">£110</span><span>Up to 6 tabs, charts and linked tabs</span></li>
+</ul>
 </div>
 </div>
 </div>
@@ -191,18 +270,17 @@
 </main>
 <!-- footer -->
 <footer class="site-footer"><div class="wrap">
-<div>
-<a class="brand" href="./" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
+<p class="shopname">Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com"><span class="stretchy">SortedSheetsShopUK</span></a></p>
 <div class="lines">
-<p>Etsy shop: SortedSheetsShopUK · <a href="https://sortedsheetsshopuk.etsy.com">sortedsheetsshopuk.etsy.com</a></p>
 <p>Payments and downloads are handled by Etsy.</p>
 <p>No cookies and no tracking. The calculators work everything out in your browser: nothing you type is sent anywhere.</p>
 <p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
-<span class="made">Made in the UK</span>
+<p class="made">Made in the UK</p>
 </div>
-</div>
-<nav aria-label="Footer"><a href="./shop/">Shop</a><a href="./calculators/">Free calculators</a><a href="./custom/">Custom spreadsheets</a><a href="./creators/">For creators</a><a href="./about/">About</a></nav>
+<nav aria-label="Footer"><a href="./shop/">Shop</a><a href="./calculators/">Calculators</a><a href="./custom/">Custom</a><a href="./creators/">Creators</a><a href="./about/">About</a></nav>
 </div></footer>
 <!-- /footer -->
+<script src="calc.js" defer></script>
+<script src="site.js" defer></script>
 </body>
 </html>
