@@ -569,7 +569,7 @@ details[open] summary { margin-bottom: 10px; }
 .big { background: var(--persimmon); border: 2.5px solid var(--ink); border-radius: 16px; padding: 12px 14px; margin: 0 0 14px; box-shadow: 0 5px 0 var(--ink); }
 .big .label { display: block; font: 800 12px/1.2 var(--sans); font-stretch: 112%; text-transform: uppercase; letter-spacing: .07em; }
 .big .value { display: block; font: 700 clamp(30px, 9vw, 44px)/1.1 var(--mono); letter-spacing: -.05em; overflow-wrap: anywhere; margin-top: 4px; }
-.big.sage { background: var(--jade); } .big.sand { background: var(--wasabi); }
+.big.sage { background: var(--jade); } .big.sand { background: var(--wasabi); } .big.paper { background: var(--paper-hi); }
 .sentence { font-size: 16.5px; }
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 0 0 14px; }
 .tile { background: var(--paper-hi); border: 2px solid var(--ink); border-radius: 14px; padding: 10px 12px; min-width: 0; margin: 0; }
@@ -586,6 +586,29 @@ dl.facts dd { margin: 0; text-align: right; font: 600 15px/1.35 var(--mono); let
 .plan .value { font: 700 26px/1.1 var(--mono); letter-spacing: -.05em; display: block; }
 .plan .hint, .big .hint, .etsy .hint { color: var(--ink); }
 .plan ol { padding-left: 1.3em; margin: 8px 0 0; font-size: 15px; }
+legend small { font: 700 15px/1 var(--sans); font-stretch: 100%; text-transform: none; }
+/* 50/30/20: the split as one bar (ink between the parts), what's spent on the same £ scale, and each part with its key */
+.split { margin: 0 0 16px; }
+.split-name { font: 800 12px/1.2 var(--sans); font-stretch: 112%; text-transform: uppercase; letter-spacing: .07em; margin: 0 0 6px; }
+.split-bar { display: flex; gap: 2.5px; height: 46px; margin: 0 0 16px; background: var(--ink); border: 2.5px solid var(--ink); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 0 var(--ink); transition: width .35s var(--ease); }
+.split-bar--spent { height: 30px; }
+.seg { display: flex; align-items: center; justify-content: center; flex: 0 1 auto; min-width: 0; overflow: hidden; transition: width .35s var(--ease); }
+.seg b { font: 700 14px/1 var(--mono); }
+.seg-needs { background: var(--persimmon); }
+.seg-wants { background: var(--wasabi); }
+.seg-savings { background: var(--jade); }
+.seg-left { background: repeating-linear-gradient(135deg, var(--paper-hi) 0 6px, var(--paper-2) 6px 12px); }
+.parts { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
+.part { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 10px; margin: 0; padding: 10px 12px; background: var(--paper-hi); border: 2px solid var(--ink); border-radius: 14px; }
+.part .key { width: 18px; height: 18px; border: 2px solid var(--ink); border-radius: 5px; }
+.pname { font: 800 15.5px/1.2 var(--sans); }
+.pname .num { font-size: 13px; font-weight: 600; margin-left: 2px; }
+.pval { font: 700 20px/1.1 var(--mono); letter-spacing: -.04em; text-align: right; min-width: 0; overflow-wrap: anywhere; }
+.pspent { grid-column: 2 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 6px; font-size: 14.5px; }
+.pspent .num { font-size: 14px; }
+.pstatus { padding: 3px 9px 2px; border: 2px solid var(--ink); border-radius: 999px; background: var(--paper); font: 800 12.5px/1.2 var(--sans); }
+.pstatus[data-ok="false"] { background: var(--peach); }
+@media (prefers-reduced-motion: reduce) { .split-bar, .seg { transition: none; } }
 .table-wrap { overflow-x: auto; margin: 0 0 14px; border: 2px solid var(--ink); border-radius: 12px; background: #fff; }
 table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
 caption { text-align: left; font-weight: 800; padding: 10px 12px 4px; }
@@ -595,6 +618,7 @@ th { font-weight: 800; background: var(--paper-2); }
 .etsy { display: grid; gap: 16px; align-items: center; background: var(--jade); border: 2.5px solid var(--ink); border-radius: 22px; padding: 16px; margin: 30px 0 10px; box-shadow: 0 7px 0 var(--ink); }
 .etsy-pic { border-radius: 10px; border: 2px solid var(--ink); transform: rotate(-1.5deg); background: var(--paper-hi); }
 .etsy p { margin: 0; font-size: 16.5px; }
+.etsy p + p { margin-top: 10px; }
 .etsy a { font-weight: 750; }
 .etsy [data-etsy-price] { font: 700 16px/1 var(--mono); }
 @media (min-width: 760px) { .etsy { grid-template-columns: 240px minmax(0, 1fr); padding: 20px 24px; } }

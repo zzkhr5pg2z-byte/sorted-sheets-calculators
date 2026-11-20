@@ -326,11 +326,37 @@
     };
   }
 
+  /* ------------------------------------------------------------------ 8. 50/30/20 budget
+     budget_50_30_20.xlsx: C8:C10 the targets (take-home pay B4 x 50%, 30%, 20%), D8:D10 what's spent in each part
+     (SUMIF of the spending list), E8:E10 "On track", "Over by £x" (needs and wants: over the target) or
+     "Short by £x" (savings: under it), D11 the total spent and D12 what's left over. The sheet takes monthly pay,
+     so yearly pay is divided by 12 first.
+     o: pay, period ("month" or "year"), needs, wants, savings (what's really spent or put by in a month). */
+  var SPLIT = [{ key: "needs", share: 0.5 }, { key: "wants", share: 0.3 }, { key: "savings", share: 0.2 }];
+  function pounds(x) {                                              // Excel TEXT(x, "£#,##0.00")
+    return "£" + round(x, 2).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function budget503020(o) {
+    var pos = function (x) { return x > 0 ? x : 0; };
+    var monthly = o.period === "year" ? pos(o.pay) / 12 : pos(o.pay);
+    var spent = 0;
+    var parts = SPLIT.map(function (s) {
+      var target = monthly * s.share, actual = pos(o[s.key]), saving = s.key === "savings";
+      var onTrack = saving ? actual >= target : actual <= target;
+      spent += actual;
+      return { key: s.key, share: s.share, target: target, spent: actual, onTrack: onTrack,
+               gap: onTrack ? 0 : Math.abs(actual - target),
+               status: onTrack ? "On track" : (saving ? "Short by " : "Over by ") + pounds(Math.abs(actual - target)) };
+    });
+    return { monthly: monthly, parts: parts, spent: spent, left: monthly - spent };
+  }
+
   var Calc = {
     careRunway: careRunway, ihtGifts: ihtGifts, christmas: christmas, nextChristmas: nextChristmas,
     debtPlan: debtPlan, giftAid: giftAid, mileage: mileage, selfAssessment: selfAssessment, taxYear: taxYear,
+    budget503020: budget503020, split503020: SPLIT,
     util: { round: round, roundUp: roundUp, days: days, ymd: ymd, edate: edate, parseDate: parseDate,
-            isoDate: isoDate, parseNum: parseNum, nperMonths: nperMonths }
+            isoDate: isoDate, parseNum: parseNum, nperMonths: nperMonths, pounds: pounds }
   };
   if (typeof module !== "undefined" && module.exports) module.exports = Calc;
   root.SSCalc = Calc;
@@ -718,8 +744,61 @@
     fill();
   }
 
+  /* ---- 50/30/20 budget: the split, two bars on the same £ scale (the split, and what's really spent), and each
+     part's status once its spending is typed in. Empty spending boxes count as nothing, as in the spreadsheet. */
+  function budgetUI(form) {
+    var res = document.querySelector('[data-results="budget"]');
+    var NAME = { needs: "Needs", wants: "Wants", savings: "Savings and debt" };
+    function typed(name) { return field(form, name).value.trim() !== ""; }
+    function width(e, x) { e.style.width = (Math.round(x * 10000) / 100) + "%"; }
+    function fill() {
+      var year = field(form, "period").value === "year";
+      var r = budget503020({ pay: num(form, "pay"), period: year ? "year" : "month",
+                             needs: num(form, "needs"), wants: num(form, "wants"), savings: num(form, "savings") });
+      var any = r.parts.some(function (p) { return typed(p.key); });
+      out(res, "monthly", money(r.monthly));
+      show(res, "yearly", year);
+      out(res, "yearly", money(num(form, "pay")) + " a year, divided by 12");
+      var scale = Math.max(r.monthly, any ? r.spent : 0);
+      width(res.querySelector("[data-bar='plan']"), scale > 0 ? r.monthly / scale : 1);
+      show(res, "spent", any && (r.spent > 0 || r.monthly > 0));
+      var said = [];
+      r.parts.forEach(function (p) {
+        out(res, p.key, money(p.target));
+        var t = typed(p.key);
+        show(res, p.key + "Spent", t);
+        out(res, p.key + "Spent", money(p.spent));
+        out(res, p.key + "Status", p.status);
+        res.querySelector("[data-out='" + p.key + "Status']").setAttribute("data-ok", p.onTrack ? "true" : "false");
+        var s = res.querySelector("[data-seg='" + p.key + "']");
+        width(s, scale > 0 ? p.spent / scale : 0);
+        s.hidden = !(p.spent > 0);
+        if (t) said.push(NAME[p.key] + ": " + p.status.charAt(0).toLowerCase() + p.status.slice(1) + ".");
+      });
+      var left = res.querySelector("[data-seg='left']");
+      width(left, scale > 0 ? Math.max(0, r.left) / scale : 0);
+      left.hidden = !(r.left > 0.005);
+      out(res, "spentTotal", money(r.spent));
+      out(res, "left", money(r.left));
+      var n = r.parts, sentence;
+      if (r.monthly <= 0) sentence = "Type your take-home pay to see your split.";
+      else if (!any) {
+        sentence = "Of " + money(r.monthly) + " a month: up to " + money(n[0].target) + " on needs, up to " + money(n[1].target) +
+          " on wants, and at least " + money(n[2].target) + " for savings or paying off debt.";
+      } else {
+        sentence = said.join(" ") + " " + (r.left > 0.005 ? money(r.left) + " of your pay isn't in any part yet."
+          : r.left < -0.005 ? "That's " + money(-r.left) + " more than you take home."
+          : "Every pound of your pay is in a part.");
+      }
+      out(res, "sentence", sentence);
+    }
+    form.addEventListener("input", fill);
+    form.addEventListener("change", fill);
+    fill();
+  }
+
   var UI = { care: careUI, iht: ihtUI, christmas: christmasUI, debt: debtUI, giftaid: giftAidUI, mileage: mileageUI,
-             sa: saUI };
+             sa: saUI, budget: budgetUI };
   function start() {
     document.querySelectorAll("form[data-calc]").forEach(function (form) {
       form.addEventListener("submit", function (e) { e.preventDefault(); });

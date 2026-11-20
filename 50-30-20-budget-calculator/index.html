@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50/30/20 Budget Calculator UK: Needs, Wants, Savings | Sorted Sheets</title>
+<meta name="description" content="Free 50/30/20 budget calculator (UK). Split your take-home pay into 50% needs, 30% wants and 20% savings or debt, and see if your real spending is on track.">
+<link rel="canonical" href="https://www.sortedsheets.uk/50-30-20-budget-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sorted Sheets">
+<meta property="og:title" content="How do I split my pay with the 50/30/20 rule?">
+<meta property="og:description" content="Free calculator: your take-home pay split into needs, wants and savings or debt, in pounds, and whether your real spending is on track.">
+<meta property="og:url" content="https://www.sortedsheets.uk/50-30-20-budget-calculator/">
+<meta property="og:image" content="https://www.sortedsheets.uk/og/50-30-20-budget.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#D7EFFF">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/anybody.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "50/30/20 budget calculator",
+ "url": "https://www.sortedsheets.uk/50-30-20-budget-calculator/",
+ "description": "Splits monthly or yearly take-home pay into 50% needs, 30% wants and 20% savings or debt, and checks real spending against each part.",
+ "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+</head>
+<body>
+<!-- header -->
+<script>document.documentElement.classList.add("js")</script>
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#351E28"/><g fill="#F0EEE9"><rect x="12.8" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="26.6" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="40.3" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="12.8" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="40.3" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="12.8" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/></g><rect x="40.3" y="40.3" width="10.9" height="10.9" rx="2" fill="#FF5C34"/></svg><b>Sorted Sheets</b></a>
+<nav aria-label="Main"><a href="../shop/">Shop</a><a href="../calculators/" aria-current="page">Calculators</a><a href="../custom/">Custom</a><a href="../creators/">Creators</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../calculators/">Free calculators</a></p>
+<h1>How do I split my pay with the 50/30/20 rule?</h1>
+<p class="lead">The 50/30/20 rule is a simple way to plan your money: half your take-home pay for the things you have to pay, 30% for the things you choose, and 20% for savings or paying off debt. Type your pay to see your split in pounds.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc">
+<form class="inputs" data-calc="budget" novalidate>
+<fieldset>
+<legend>Your pay</legend>
+<div class="field"><label for="pay">Take-home pay</label>
+<span class="hint" id="pay-hint">What reaches your bank account after tax, National Insurance, pension and any student loan. Your payslip calls it net pay.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="pay" name="pay" value="2,400" aria-describedby="pay-hint" autocomplete="off"></div></div>
+<div class="field"><label for="period">Is that for a month or a year?</label>
+<span class="hint" id="period-hint">A year's pay is divided by 12.</span>
+<select id="period" name="period" aria-describedby="period-hint"><option value="month">A month</option><option value="year">A year</option></select></div>
+</fieldset>
+<fieldset>
+<legend>What you spend <small>(optional)</small></legend>
+<p class="hint" id="spend-hint">A month's worth for each part. Leave them empty to see just the split.</p>
+<div class="field"><label for="needs">Needs</label>
+<span class="hint" id="needs-hint">Rent or mortgage, bills, the food shop, travel, minimum debt payments.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="needs" name="needs" value="" aria-describedby="spend-hint needs-hint" autocomplete="off"></div></div>
+<div class="field"><label for="wants">Wants</label>
+<span class="hint" id="wants-hint">Eating out, subscriptions, hobbies, shopping.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="wants" name="wants" value="" aria-describedby="spend-hint wants-hint" autocomplete="off"></div></div>
+<div class="field"><label for="savings">Savings and debt</label>
+<span class="hint" id="savings-hint">Savings, investing, and extra debt payments on top of the minimum.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="savings" name="savings" value="" aria-describedby="spend-hint savings-hint" autocomplete="off"></div></div>
+</fieldset>
+</form>
+
+<section class="results" data-results="budget" aria-labelledby="budget-results">
+<h2 id="budget-results">Results</h2>
+<p class="big paper"><span class="label">Take-home pay a month</span><span class="value" data-out="monthly">-</span></p>
+<p class="hint" data-show="yearly" data-out="yearly" hidden></p>
+<div class="split" aria-hidden="true">
+<p class="split-name">The 50/30/20 split</p>
+<div class="split-bar" data-bar="plan"><span class="seg seg-needs" style="width:50%"><b class="num">50%</b></span><span class="seg seg-wants" style="width:30%"><b class="num">30%</b></span><span class="seg seg-savings" style="width:20%"><b class="num">20%</b></span></div>
+<p class="split-name" data-show="spent" hidden>What you spend</p>
+<div class="split-bar split-bar--spent" data-show="spent" hidden><span class="seg seg-needs" data-seg="needs"></span><span class="seg seg-wants" data-seg="wants"></span><span class="seg seg-savings" data-seg="savings"></span><span class="seg seg-left" data-seg="left"></span></div>
+</div>
+<ul class="parts">
+<li class="part"><span class="key seg-needs" aria-hidden="true"></span><span class="pname">Needs <span class="num">50%</span></span><span class="pval num" data-out="needs">-</span>
+<span class="pspent" data-show="needsSpent" hidden>You spend <b class="num" data-out="needsSpent">-</b> <b class="pstatus" data-out="needsStatus">-</b></span></li>
+<li class="part"><span class="key seg-wants" aria-hidden="true"></span><span class="pname">Wants <span class="num">30%</span></span><span class="pval num" data-out="wants">-</span>
+<span class="pspent" data-show="wantsSpent" hidden>You spend <b class="num" data-out="wantsSpent">-</b> <b class="pstatus" data-out="wantsStatus">-</b></span></li>
+<li class="part"><span class="key seg-savings" aria-hidden="true"></span><span class="pname">Savings and debt <span class="num">20%</span></span><span class="pval num" data-out="savings">-</span>
+<span class="pspent" data-show="savingsSpent" hidden>You put by <b class="num" data-out="savingsSpent">-</b> <b class="pstatus" data-out="savingsStatus">-</b></span></li>
+</ul>
+<dl class="facts" data-show="spent" hidden>
+<dt>Total you spend and put by</dt><dd data-out="spentTotal">-</dd>
+<dt>Left over</dt><dd data-out="left">-</dd>
+</dl>
+<p class="sentence" aria-live="polite" data-out="sentence"></p>
+<p class="hint">An example to plan with, not financial advice.</p>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<p>Your take-home pay is split three ways. If you type a year's pay, it's divided by 12 first, so every figure is for a month.</p>
+<ul>
+<li><strong>Needs, 50%:</strong> what you have to pay to live and work. Rent or mortgage, energy, water, council tax, the food shop, your phone, getting to work, and the minimum payment on any debts.</li>
+<li><strong>Wants, 30%:</strong> what you choose to spend on. Eating out, takeaways, streaming and other subscriptions, the gym, hobbies, clothes and treats.</li>
+<li><strong>Savings and debt, 20%:</strong> money for your future. An emergency fund, savings pots, investing, and paying debts off faster than the minimum.</li>
+</ul>
+<p>Type what you really spend in each part to check it. Needs and wants are on track when they're at or under their share. Savings and debt is on track when it's at or over its share. Anything you leave empty counts as nothing, and what's left over is the pay you haven't put in any part yet.</p>
+<h2>If it doesn't fit</h2>
+<p>If your rent or mortgage is high, needs can come to more than half your pay on their own. The 50/30/20 split is a starting point, not a test. Take a little from wants first, and keep something going into savings, even if it's less than 20% for now.</p>
+<ul>
+<li>It uses one month's pay. If yours changes from month to month, use a typical month, or a low one to be safe.</li>
+<li>It doesn't know your bills or your debts: it only works out the split and compares what you type.</li>
+<li>Payments you make once a year, such as car insurance or a TV licence, are easier to plan for if you divide them by 12 and count them each month.</li>
+</ul>
+<p class="note">Struggling to cover the needs, or with debt? Free, confidential help is available from MoneyHelper, StepChange and Citizens Advice. This calculator is an example to plan with, not financial advice.</p>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<img class="etsy-pic" src="../img/shop/4589282773.jpg" width="800" height="600" alt="50/30/20 Budget Calculator: the first photo on its Etsy listing" loading="lazy">
+<div>
+<p>Want to list every bill and see where it all goes? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4589282773">50/30/20 Budget Calculator spreadsheet</a> is <span data-etsy-price>£4</span> on Etsy. <a data-product-link="4589282773" href="../50-30-20-budget/">See its photos and what you get</a>. You list what you spend and tag each item Needs, Wants or Savings. It works out your targets and shows whether each part is on track, over or short, and you can change the split if you like. For Excel and Google Sheets.</p>
+<p>It's also in the <a data-etsy-listing="4619689235" href="https://sortedsheetsshopuk.etsy.com/listing/4619689235">Budget Starter Bundle</a> for <span data-etsy-price="4619689235">£14</span>, with the Monthly Budget Tracker, the Savings Goals &amp; 52-Week Challenge Tracker and the Debt Payoff Planner. <a data-product-link="4619689235" href="../budget-starter-bundle/">See what's in the bundle</a>.</p>
+<p>Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com">SortedSheetsShopUK</a></p>
+</div>
+</aside>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p class="shopname">Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com"><span class="stretchy">SortedSheetsShopUK</span></a></p>
+<div class="lines">
+<p>Payments and downloads are handled by Etsy.</p>
+<p>No cookies and no tracking. The calculators work everything out in your browser: nothing you type is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+<p class="made">Made in the UK</p>
+</div>
+<nav aria-label="Footer"><a href="../shop/">Shop</a><a href="../calculators/">Calculators</a><a href="../custom/">Custom</a><a href="../creators/">Creators</a><a href="../about/">About</a></nav>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>
