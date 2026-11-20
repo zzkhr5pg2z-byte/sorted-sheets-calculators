@@ -7,13 +7,17 @@
 <meta name="robots" content="noindex">
 <meta name="site-base" content="https://www.sortedsheets.uk/">
 <script>
-/* Old Gumroad product links (www.sortedsheets.uk/l/...) went to Gumroad before this site took over the domain.
-   Anything under l/ goes straight on to the same address on Gumroad. */
+/* Old addresses from when Gumroad ran this domain: www.sortedsheets.uk/<permalink> and /l/<permalink>. A product we
+   have a page for goes to that page (any letter case); any other l/ address goes on to the same address on Gumroad. */
 (function () {
   var root = new URL(document.querySelector('meta[name="site-base"]').content).pathname;
   var path = location.pathname;
   if (path.indexOf(root) === 0) path = path.slice(root.length - 1);
-  if (/^\/l\//.test(path)) location.replace("https://joshconnolly.gumroad.com" + path + location.search + location.hash);
+  var pages = /*products*/{"2027-digital-planner-uk": "2027-digital-planner-uk", "2027-printable-planner-uk": "2027-printable-planner-uk", "50-30-20-budget": "50-30-20-budget", "budget-starter-bundle": "budget-starter-bundle", "business-tracker": "business-tracker", "care-home-fees-calculator": "care-home-fees-runway", "care-home-fees-runway": "care-home-fees-runway", "childminder-hours-invoices": "childminder-hours-invoices", "christmas-budget-gift-planner": "christmas-budget-gift-planner", "christmas-new-year-bundle": "christmas-new-year-bundle", "client-onboarding": "client-onboarding", "club-subs-membership-tracker": "club-subs-membership-tracker", "content-calendar": "content-calendar", "custom-spreadsheet-premium": "custom-spreadsheet-premium", "custom-spreadsheet-simple": "custom-spreadsheet-simple", "custom-spreadsheet-standard": "custom-spreadsheet-standard", "debt-payoff-planner": "debt-payoff-planner", "everything-bundle": "everything-bundle", "executor-estate-record": "executor-estate-record", "family-care-kit": "family-care-kit", "finance-dashboard": "finance-dashboard", "gcse-a-level-revision-planner": "gcse-a-level-revision-planner", "habit-tracker": "habit-tracker", "holiday-let-booking-tracker": "holiday-let-booking-tracker", "inheritance-tax-gift-record": "inheritance-tax-gift-record", "invoice-client-tracker": "Invoice-client-tracker", "landlord-rent-tracker": "landlord-rent-tracker", "meal-planner": "meal-planner", "money-system": "money-system", "monthly-budget": "monthly-budget", "power-of-attorney-record-keeper": "power-of-attorney-record-keeper", "recipe-costing-menu-pricing": "recipe-costing-menu-pricing", "reseller-tracker": "reseller-tracker", "savings-tracker": "savings-tracker", "self-assessment-helper-2025-26": "self-assessment-helper-2025-26", "small-business-kit": "small-business-kit", "sole-trader-bookkeeping": "sole-trader-bookkeeping", "staff-rota-wages": "staff-rota-wages", "student-planner": "student-planner", "till-cash-up-sheet": "till-cash-up-sheet", "trades-quote-invoice": "trades-quote-invoice", "wedding-budget": "wedding-budget", "workout-log": "workout-log", "yearly-budget": "yearly-budget"}/*/products*/;
+  var m = /^\/(l\/)?([^\/]+)\/?$/.exec(path);
+  var slug = m && pages[decodeURIComponent(m[2]).toLowerCase()];
+  if (slug) location.replace(root + slug + "/" + location.search + location.hash);
+  else if (/^\/l\//.test(path)) location.replace("https://joshconnolly.gumroad.com" + path + location.search + location.hash);
 })();
 </script>
 <meta name="theme-color" content="#1b2a4a">
