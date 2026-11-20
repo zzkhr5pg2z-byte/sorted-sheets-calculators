@@ -3,8 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found | Sorted Sheets Calculators</title>
+<title>Page not found | Sorted Sheets</title>
 <meta name="robots" content="noindex">
+<meta name="site-base" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/">
+<script>
+/* Old Gumroad product links (www.sortedsheets.uk/l/...) went to Gumroad before this site took over the domain.
+   Anything under l/ goes straight on to the same address on Gumroad. */
+(function () {
+  var root = new URL(document.querySelector('meta[name="site-base"]').content).pathname;
+  var path = location.pathname;
+  if (path.indexOf(root) === 0) path = path.slice(root.length - 1);
+  if (/^\/l\//.test(path)) location.replace("https://joshconnolly.gumroad.com" + path + location.search + location.hash);
+})();
+</script>
+<meta name="theme-color" content="#1b2a4a">
 <link rel="icon" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/icon.svg" data-root="icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/style.css" data-root="style.css">
 </head>
@@ -12,19 +24,45 @@
 <!-- header -->
 <a class="skip" href="#main">Skip to the main content</a>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/">Sorted Sheets <span>Calculators</span></a>
-<nav aria-label="Main"><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/">All calculators</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/about/">About</a></nav>
+<a class="brand" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
+<nav aria-label="Main"><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/shop/">Shop</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/calculators/">Free calculators</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/custom/">Custom spreadsheets</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/creators/">For creators</a></nav>
 </div></header>
 <!-- /header -->
-<main id="main" class="wrap narrow">
-<h1>Page not found</h1>
-<p>That page doesn't exist, or it has moved. <a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/" data-root="">See all the calculators</a>.</p>
+<main id="main">
+<div class="page-head on-navy">
+<div class="wrap narrow">
+<span class="kicker">Error 404</span>
+<h1>Sorry, that page isn't here</h1>
+<p class="lead">It may have moved, or the link has a typo. These should get you where you were going.</p>
+</div>
+</div>
+<div class="wrap narrow prose-page">
+<ul class="cards">
+<li><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/shop/" data-root="shop/">Shop all templates</a>
+<p>Every template, each with its Etsy price.</p></li>
+<li><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/calculators/" data-root="calculators/">Free calculators</a>
+<p>Care home fees, inheritance tax gifts, Christmas savings, debts, Gift Aid, mileage and Self Assessment.</p></li>
+<li><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/custom/" data-root="custom/">Custom spreadsheets</a>
+<p>A spreadsheet built for what you keep track of.</p></li>
+<li><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/" data-root="">Home page</a>
+<p>Start again from the top.</p></li>
+</ul>
+<p>Looking for something you bought on Gumroad? It's still at <a href="https://joshconnolly.gumroad.com">joshconnolly.gumroad.com</a>.</p>
+</div>
 </main>
 <!-- footer -->
 <footer class="site-footer"><div class="wrap">
-<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/about/">Who runs this site</a> · <a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/creators/">For creators</a></p>
-<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<div>
+<a class="brand" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
+<div class="lines">
+<p>Etsy shop: SortedSheetsShopUK · <a href="https://sortedsheetsshopuk.etsy.com">sortedsheetsshopuk.etsy.com</a></p>
+<p>Payments and downloads are handled by Etsy.</p>
+<p>No cookies and no tracking. The calculators work everything out in your browser: nothing you type is sent anywhere.</p>
 <p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+<span class="made">Made in the UK</span>
+</div>
+</div>
+<nav aria-label="Footer"><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/shop/">Shop</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/calculators/">Free calculators</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/custom/">Custom spreadsheets</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/creators/">For creators</a><a href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/about/">About</a></nav>
 </div></footer>
 <!-- /footer -->
 </body>

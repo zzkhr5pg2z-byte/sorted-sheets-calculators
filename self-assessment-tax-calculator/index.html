@@ -7,10 +7,13 @@
 <meta name="description" content="Free Self Assessment calculator for 2025/26: Income Tax and Class 4 NI on sole trader profit, the bill due 31 January 2027, and any payments on account.">
 <link rel="canonical" href="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/self-assessment-tax-calculator/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Sorted Sheets">
 <meta property="og:title" content="How much will my Self Assessment bill be in January 2027?">
 <meta property="og:description" content="Free calculator: Income Tax, Class 4 National Insurance, the balancing payment and payments on account for 2025/26.">
 <meta property="og:url" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/self-assessment-tax-calculator/">
-<meta name="theme-color" content="#3f6b47">
+<meta property="og:image" content="https://zzkhr5pg2z-byte.github.io/sorted-sheets-calculators/og/self-assessment.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b2a4a">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css">
 <script src="../figures.js" defer></script>
@@ -27,12 +30,12 @@
 <!-- header -->
 <a class="skip" href="#main">Skip to the main content</a>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="../">Sorted Sheets <span>Calculators</span></a>
-<nav aria-label="Main"><a href="../">All calculators</a><a href="../about/">About</a></nav>
+<a class="brand" href="../" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
+<nav aria-label="Main"><a href="../shop/">Shop</a><a href="../calculators/" aria-current="page">Free calculators</a><a href="../custom/">Custom spreadsheets</a><a href="../creators/">For creators</a></nav>
 </div></header>
 <!-- /header -->
 <main id="main" class="wrap">
-<p class="crumbs"><a href="../">All calculators</a></p>
+<p class="crumbs"><a href="../calculators/">Free calculators</a></p>
 <h1>How much will my Self Assessment bill be in January 2027?</h1>
 <p class="lead">For sole traders filing the <span data-fig="self_assessment.tax_year">2025/26</span> return (<span data-fig="self_assessment.tax_year_long">6 April 2025 to 5 April 2026</span>). Type your business income and expenses, and any job or pension pay. You'll see your Income Tax and Class 4 National Insurance, the balancing payment due by <span data-fig="self_assessment.due_january">31 January 2027</span>, and whether HMRC will ask for payments on account towards <span data-fig="self_assessment.next_tax_year">2026/27</span>.</p>
 <noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
@@ -108,7 +111,7 @@
 </dl>
 <p class="hint" data-out="method"></p>
 <p class="hint" data-show="loss" hidden>A loss of <span data-out="loss">£0.00</span>: no tax on the business this year. Using a loss against other income isn't worked out here.</p>
-<div class="table-wrap">
+<div class="table-wrap" tabindex="0">
 <table>
 <caption>Income Tax by band: <span data-out="rates">Rates for England, Wales and Northern Ireland</span></caption>
 <thead><tr><th scope="col">Band</th><th scope="col">Rate</th><th scope="col">Income in band</th><th scope="col">Tax</th></tr></thead>
@@ -125,7 +128,7 @@
 <p>Profit is your business income less your allowable expenses. Or you can take the <span data-fig="self_assessment.trading_allowance" data-fmt="money0">£1,000</span> trading allowance off your income instead, which helps if your expenses are small. The calculator picks whichever gives the lower profit, unless you choose. The allowance can't be more than your income, so it can't make a loss.</p>
 <h3>2. Income Tax</h3>
 <p>Your profit and any job or pension pay are added together. The Personal Allowance of <span data-fig="self_assessment.personal_allowance" data-fmt="money0">£12,570</span> is tax-free. It goes down by £1 for every £2 of income over <span data-fig="self_assessment.pa_income_limit" data-fmt="money0">£100,000</span>, so it's gone at <span data-fig="self_assessment.pa_zero_at" data-fmt="money0">£125,140</span>. The rest is taxed in bands.</p>
-<div class="table-wrap">
+<div class="table-wrap" tabindex="0">
 <table>
 <caption>England, Wales and Northern Ireland, <span data-fig="self_assessment.tax_year">2025/26</span> (income after the allowance)</caption>
 <thead><tr><th scope="col">Band</th><th scope="col">Income</th><th scope="col">Rate</th></tr></thead>
@@ -136,7 +139,7 @@
 </tbody>
 </table>
 </div>
-<div class="table-wrap">
+<div class="table-wrap" tabindex="0">
 <table>
 <caption>Scotland, <span data-fig="self_assessment.tax_year">2025/26</span> (income after the allowance)</caption>
 <thead><tr><th scope="col">Band</th><th scope="col">Income</th><th scope="col">Rate</th></tr></thead>
@@ -167,8 +170,11 @@
 </div>
 
 <aside class="etsy" aria-label="The spreadsheet version">
+<img class="etsy-pic" src="../img/shop/4619679203.jpg" width="800" height="600" alt="Self Assessment Helper 2025/26: the first photo on its Etsy listing" loading="lazy">
+<div>
 <p>Want it all worked out in a spreadsheet? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4619679203">Self Assessment Helper 2025/26</a> is <span data-etsy-price>£8</span> on Etsy. You log your income, expenses, mileage and use of home, and it works out this same estimate, plus the figures to copy onto the short self-employment pages of your return. For Excel and Google Sheets.</p>
 <p>Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com">SortedSheetsShopUK</a></p>
+</div>
 </aside>
 
 <section class="prose" aria-labelledby="checked">
@@ -188,9 +194,17 @@
 </main>
 <!-- footer -->
 <footer class="site-footer"><div class="wrap">
-<p>Free UK money calculators from Sorted Sheets, a small spreadsheet business. <a href="../about/">Who runs this site</a> · <a href="../creators/">For creators</a></p>
-<p>No cookies and no tracking. Everything is worked out in your browser: nothing you type is sent anywhere.</p>
+<div>
+<a class="brand" href="../" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14.08" fill="#1b2a4a"/><g fill="#fff"><rect x="12.8" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="26.56" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="40.32" y="12.8" width="10.88" height="10.88" rx="1.96" opacity=".92"/><rect x="12.8" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="40.32" y="26.56" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="12.8" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/><rect x="26.56" y="40.32" width="10.88" height="10.88" rx="1.96" opacity=".59"/></g><rect x="40.32" y="40.32" width="10.88" height="10.88" rx="1.96" fill="#b9812f"/><polyline points="42.93,45.98 45,47.94 48.81,43.58" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sorted Sheets</b></a>
+<div class="lines">
+<p>Etsy shop: SortedSheetsShopUK · <a href="https://sortedsheetsshopuk.etsy.com">sortedsheetsshopuk.etsy.com</a></p>
+<p>Payments and downloads are handled by Etsy.</p>
+<p>No cookies and no tracking. The calculators work everything out in your browser: nothing you type is sent anywhere.</p>
 <p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+<span class="made">Made in the UK</span>
+</div>
+</div>
+<nav aria-label="Footer"><a href="../shop/">Shop</a><a href="../calculators/">Free calculators</a><a href="../custom/">Custom spreadsheets</a><a href="../creators/">For creators</a><a href="../about/">About</a></nav>
 </div></footer>
 <!-- /footer -->
 </body>
