@@ -699,9 +699,22 @@ th { font-weight: 800; background: var(--paper-2); }
   .buy-strip, .js .buy-strip.on { display: none; }
 }
 
+/* ------------------------------------------------------------ the cookie choice (site.js): a sheet at the bottom, two equal buttons */
+.cookies {
+  position: fixed; z-index: 60; left: 12px; right: 12px; bottom: 12px; max-width: 520px; margin: 0 auto;
+  padding: 16px 16px 18px; background: var(--paper-hi); color: var(--ink); border: 2.5px solid var(--ink); border-radius: 20px;
+  box-shadow: 0 7px 0 var(--ink); font-size: 15px; line-height: 1.45;
+}
+.cookies p { margin: 0 0 12px; }
+.cookies .ck-title { font: 880 24px/1 var(--sans); font-stretch: 72%; text-transform: uppercase; margin-bottom: 8px; }
+.cookies .ck-now { font-size: 14px; }
+.ck-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ck-btns .btn { width: 100%; }
+@media (min-width: 960px) { .cookies { left: auto; right: 24px; bottom: 24px; width: 440px; } }
+
 /* ------------------------------------------------------------ print */
 @media print {
-  .site-header nav, .btn-add, .btn-remove, .etsy, .site-footer nav, .buy-strip, .statusbar, .b-bar { display: none; }
+  .site-header nav, .btn-add, .btn-remove, .etsy, .site-footer nav, .buy-strip, .statusbar, .b-bar, .cookies { display: none; }
   .calc { display: block; }
   form.inputs, .results, .btn, .tab { box-shadow: none; }
 }

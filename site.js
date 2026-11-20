@@ -7,8 +7,14 @@
    - The home page's small browser (tabs over the featured templates) and its one live cell (the Christmas savings
      sum from calc.js).
    - Home page colour blocks that slide over each other as you scroll.
-   With JavaScript off every page still works: the tabs are links to each section and every template is listed.
-   Nothing is stored and nothing is sent anywhere. */
+   - Cookies (every page): a banner asks once, Accept or No thanks, and "Cookie settings" in the footer asks again.
+     The choice is kept in this browser's localStorage ("ss-cookies": "yes" or "no"). Only after Accept does the page
+     load the Pinterest Tag (Pinterest's standard base code and its core.js) and report: pagevisit on every
+     page (with the listing on product pages), addtocart when a link to an Etsy listing is clicked (its name and price,
+     in pounds) and search when the shop's Find box is used. Clicks are never held up: the event is handed to the tag
+     and the browser goes straight on to Etsy. No thanks after Accept clears the tag's cookies and reloads the page.
+   With JavaScript off every page still works: the tabs are links to each section and every template is listed, and
+   nothing from Pinterest loads. Without Accept nothing is stored but the choice, and nothing is sent anywhere. */
 (function () {
   "use strict";
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -16,6 +22,93 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 });
   var pad = function (n) { return String(n).padStart(2, "0"); };
+
+  /* ---------------------------------------------------------------- cookies: the Pinterest Tag, only after Accept */
+  var PIN_TAG = "2612904316124";
+  var LISTINGS = /*listings*/{"4608558491": ["Club Subs & Membership", 10.0], "4619689783": ["Christmas & New Year Bundle", 12.0], "4619697530": ["Small Business Kit", 29.0], "4619697350": ["Family & Care Kit", 29.0], "4619689235": ["Budget Starter Bundle", 14.0], "4619685899": ["Staff Rota & Wages", 10.0], "4619685757": ["Daily Till Cash-Up", 10.0], "4619693306": ["Childminder Hours & Invoices", 8.0], "4619679355": ["Executor & Estate Record", 12.0], "4619679203": ["Self Assessment Helper 2025/26", 8.0], "4616355104": ["2027 Digital Planner UK, hyperlinked PDF", 5.0], "4616355002": ["2027 Printable Planner UK, A4 + A5 PDF", 4.0], "4616309895": ["GCSE & A-level Revision Planner", 6.0], "4608845140": ["Christmas Budget & Gift Planner", 6.0], "4608558341": ["Landlord Rent & Arrears", 12.0], "4608579782": ["Holiday Let Booking Tracker", 14.0], "4608558115": ["Recipe Costing & Menu Pricing", 12.0], "4608557913": ["Quotes & Invoices", 12.0], "4589833979": ["Inheritance Tax Gift Record", 15.0], "4594127658": ["Custom spreadsheet: Premium", 110.0], "4594126784": ["Custom spreadsheet: Standard", 75.0], "4594107929": ["Custom spreadsheet: Simple", 40.0], "4589829859": ["Care Home Fees Runway Calculator", 9.0], "4589835548": ["UK Power of Attorney Record Keeper", 12.0], "4589299225": ["Everything Bundle", 60.0], "4589306920": ["Meal Planner & Grocery List", 9.0], "4589295301": ["Client Onboarding Dashboard", 9.0], "4589293505": ["Wedding Budget Planner", 9.0], "4589301590": ["UK Sole Trader Bookkeeping Kit", 15.0], "4589290093": ["Complete Money System", 19.0], "4589298112": ["Yearly Budget Planner", 6.0], "4589286503": ["Small Business Income & Expense", 9.0], "4589284259": ["Reseller Inventory & Profit Tracker", 9.0], "4589282773": ["50/30/20 Budget Calculator", 4.0], "4589290620": ["Savings Goals & 52-Week Challenge", 5.0], "4589278091": ["Social Media Content Calendar", 4.0], "4589285480": ["Weekly Student Planner", 4.0], "4589283194": ["Workout & Progress Log", 4.0], "4589280586": ["30-Day Habit Tracker", 3.0], "4589278810": ["Monthly Budget Tracker", 6.0], "4589267529": ["Debt Payoff Planner", 6.0], "4589265223": ["Freelancer Invoice & Client Tracker", 9.0], "4589267014": ["Personal Finance Dashboard", 9.0]}/*/listings*/;   // id -> [name, price in £], filled in by build.py from data/etsy.json
+  var CHOICE = "ss-cookies", pinOn = false;
+  var PIN_KEYS = /^(_pin|_epik|_derived_epik)/;   // the tag's own cookies and stored ids on this site
+  function choice() { try { return localStorage.getItem(CHOICE); } catch (e) { return null; } }
+  function remember(v) { try { localStorage.setItem(CHOICE, v); } catch (e) { /* private window: asks again next page */ } }
+  function track(event, data) {             // fire and forget: never waits for Pinterest, never holds up the page
+    if (!pinOn) return;
+    try { window.pintrk("track", event, data); } catch (e) { /* ignore */ }
+  }
+  function item(id) {
+    var x = LISTINGS[id];
+    return x ? { product_id: id, product_name: x[0], product_price: x[1] } : null;
+  }
+  function startPinterest() {
+    if (pinOn) return;
+    pinOn = true;
+    /* Pinterest's standard base code */
+    !function (e) { if (!window.pintrk) { window.pintrk = function () { window.pintrk.queue.push(Array.prototype.slice.call(arguments)); };
+      var n = window.pintrk; n.queue = [], n.version = "3.0"; var t = document.createElement("script"); t.async = !0, t.src = e;
+      var r = document.getElementsByTagName("script")[0]; r.parentNode.insertBefore(t, r); } }("https://s.pinimg.com/ct/core.js");
+    window.pintrk("load", PIN_TAG);
+    window.pintrk("page");
+    var main = $("main[data-listing]"), it = main && item(main.getAttribute("data-listing"));
+    track("pagevisit", it ? { currency: "GBP", line_items: [it] } : {});
+  }
+  function etsyClick(e) {                   // any link to an Etsy listing: Buy buttons, shop rows, buy strips, text links
+    if (!pinOn || (e.type === "auxclick" && e.button !== 1)) return;
+    var a = e.target.closest && e.target.closest('a[href^="https://sortedsheetsshopuk.etsy.com/listing/"]');
+    var m = a && /\/listing\/(\d+)/.exec(a.getAttribute("href")), it = m && item(m[1]);
+    if (!it) return;
+    track("addtocart", { value: it.product_price, currency: "GBP", order_quantity: 1,
+      line_items: [{ product_id: it.product_id, product_name: it.product_name, product_price: it.product_price, product_quantity: 1 }] });
+  }
+  function forget() {                       // No thanks after Accept: expire the tag's cookies, drop its stored ids
+    var parts = location.hostname.split("."), gone = "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    document.cookie.split(";").forEach(function (c) {
+      var name = c.split("=")[0].trim();
+      if (!PIN_KEYS.test(name)) return;
+      document.cookie = name + gone;
+      for (var i = 0; i < parts.length - 1; i++) document.cookie = name + gone + "; domain=." + parts.slice(i).join(".");
+    });
+    try {
+      Object.keys(localStorage).filter(function (k) { return PIN_KEYS.test(k); }).forEach(function (k) { localStorage.removeItem(k); });
+    } catch (e) { /* ignore */ }
+  }
+  function banner(opener) {
+    var old = $("[data-cookies]");
+    if (old) old.remove();
+    var brand = $(".brand"), root = brand ? brand.getAttribute("href") : "./", now = choice();
+    var box = document.createElement("section");
+    box.className = "cookies";
+    box.setAttribute("data-cookies", "");
+    box.setAttribute("aria-labelledby", "ck-h");
+    box.innerHTML = '<p class="ck-title" id="ck-h">Cookies?</p>' +
+      "<p>Sorted Sheets advertises on Pinterest. If you accept, the Pinterest Tag sets cookies so Pinterest can tell us " +
+      "which ads bring people here and when they go on to Etsy to buy. Nothing from Pinterest loads unless you accept. " +
+      '<a href="' + root + 'privacy/">How it works</a></p>' +
+      (now ? '<p class="ck-now">Your choice now: <b>' + (now === "yes" ? "Accept" : "No thanks") + "</b></p>" : "") +
+      '<div class="ck-btns"><button type="button" class="btn" data-consent="yes">Accept</button>' +
+      '<button type="button" class="btn" data-consent="no">No thanks</button></div>';
+    var skip = $(".skip");
+    if (skip) skip.after(box); else document.body.prepend(box);
+    $$("[data-consent]", box).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var was = choice(), v = b.getAttribute("data-consent");
+        remember(v);
+        box.remove();
+        if (opener) opener.focus();
+        if (v === "yes") startPinterest();
+        else if (was === "yes" || pinOn) { forget(); location.reload(); }
+      });
+    });
+    if (opener) $("button", box).focus();
+  }
+  function cookies() {
+    var now = choice();
+    if (now === "yes") startPinterest();
+    else if (now !== "no") banner(null);
+    $$("[data-cookie-settings]").forEach(function (a) {
+      a.addEventListener("click", function (e) { e.preventDefault(); banner(a); });
+    });
+    document.addEventListener("click", etsyClick, true);
+    document.addEventListener("auxclick", etsyClick, true);
+  }
 
   /* ---------------------------------------------------------------- status bar: count, sum, average */
   function status(bar, prices) {
@@ -120,12 +213,16 @@
         t.scrollIntoView({ block: "nearest", inline: "nearest" });
       });
     });
-    var typing = null;
+    var typing = null, searching = null, searched = "";
     find.addEventListener("input", function () {
       state.q = find.value.trim();
       apply();
       clearTimeout(typing);
       typing = setTimeout(function () { write(false); }, 400);
+      clearTimeout(searching);              // after Accept: tell Pinterest what was searched, once typing stops
+      searching = setTimeout(function () {
+        if (state.q && state.q !== searched) { searched = state.q; track("search", { search_query: state.q }); }
+      }, 1200);
     });
     find.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && find.value) { e.preventDefault(); state.q = ""; find.value = ""; apply(); write(false); }
@@ -338,6 +435,7 @@
   }
 
   function start() {
+    cookies();
     $$("[data-browser=shop]").forEach(shop);
     $$("[data-browser=home]").forEach(mini);
     $$("[data-deck]").forEach(deck);
