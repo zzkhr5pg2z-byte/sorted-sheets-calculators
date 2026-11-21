@@ -178,6 +178,17 @@ window.SS_FIGURES = {
    "sa_refund"
   ]
  },
+ "vat": {
+  "standard_rate": 0.2,
+  "threshold": 90000,
+  "checked": "2026-11-21",
+  "checked_label": "21 November 2026",
+  "sources": [
+   "vat_rates",
+   "vat_register",
+   "vat_food"
+  ]
+ },
  "sources": {
   "lac_2026": {
    "title": "Social care: charging for care and support 2026 to 2027 (local authority circular)",
@@ -292,6 +303,24 @@ window.SS_FIGURES = {
    "url": "https://www.gov.uk/government/publications/rates-and-allowances-travel-mileage-and-fuel-allowances/travel-mileage-and-fuel-rates-and-allowances",
    "site": "gov.uk",
    "says": "Approved mileage rates from 2026 to 2027: cars and vans 55p then 25p; motor cycles 24p; bicycles 20p"
+  },
+  "vat_rates": {
+   "title": "VAT rates",
+   "url": "https://www.gov.uk/vat-rates",
+   "site": "gov.uk",
+   "says": "The standard rate is 20%; most food is zero-rated (0%)"
+  },
+  "vat_register": {
+   "title": "Register for VAT: when to register",
+   "url": "https://www.gov.uk/register-for-vat",
+   "site": "gov.uk",
+   "says": "You must register if your taxable turnover for the last 12 months goes over £90,000"
+  },
+  "vat_food": {
+   "title": "Food products and VAT (VAT Notice 701/14)",
+   "url": "https://www.gov.uk/guidance/food-products-and-vat-notice-70114",
+   "site": "gov.uk",
+   "says": "Cakes, including birthday and wedding cakes, are zero-rated, except when supplied in the course of catering (VAT Notice 709/1)"
   }
  }
 };

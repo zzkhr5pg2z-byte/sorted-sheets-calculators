@@ -351,10 +351,51 @@
     return { monthly: monthly, parts: parts, spent: spent, left: monthly - spent };
   }
 
+  /* ------------------------------------------------------------------ 9. cake pricing
+     recipe_menu_costing.xlsx, one dish: Ingredients I (cost per g, ml or each = pack price / (pack size x 1000 for kg
+     and l)), Recipes G (line cost = quantity x 1000 for kg and l x cost per g, ml or each; blank when the unit isn't the
+     same kind as the pack, the quantity is 0 or the pack has no price) and H (the line's check), Menu H (recipe cost),
+     I (cost per portion = recipe cost / portions + extra cost per portion), P (VAT multiplier: 1 + rate when registered
+     and not zero-rated), Q (price without VAT), J (food cost % = cost per portion / Q), K (gross profit = Q - cost per
+     portion), L (price for target = ROUNDUP(ROUND(cost x P / target / step, 6), 0) x step, step at least 1p) and
+     M (status). Start Here: C7 target food cost %, C8 VAT registered, C9 VAT rate, C10 round prices up to the next.
+     o: lines [{packSize, packUnit, packPrice, qty, unit}] (packPrice null when empty), portions, extra, price (null
+     when empty), target, vat (registered), zero (zero-rated), rate, step. */
+  var UNITS = { g: { base: "g", mult: 1 }, kg: { base: "g", mult: 1000 }, ml: { base: "ml", mult: 1 },
+                l: { base: "ml", mult: 1000 }, each: { base: "each", mult: 1 } };
+  function cakePrice(o) {
+    var lines = (o.lines || []).map(function (x) {
+      var pack = UNITS[x.packUnit], use = UNITS[x.unit];
+      var per = pack && x.packSize > 0 && x.packPrice != null ? x.packPrice / (x.packSize * pack.mult) : null;
+      var cost = null, check;
+      if (!(x.qty > 0)) check = "Check: add a quantity";
+      else if (!use) check = "Check: pick a unit";
+      else if (!pack) check = "Check: ingredient has no pack unit";
+      else if (use.base !== pack.base) check = "Check: use " + (pack.base === "g" ? "g or kg" : pack.base === "ml" ? "ml or l" : "each");
+      else if (per === null) check = "Check: ingredient has no price";
+      else { cost = x.qty * use.mult * per; check = "OK"; }
+      return { perUnit: per, base: pack ? pack.base : null, cost: cost, check: check };
+    });
+    var recipe = lines.reduce(function (s, l) { return s + (l.cost || 0); }, 0);
+    var checks = lines.filter(function (l) { return l.check !== "OK"; }).length;
+    var portions = o.portions > 0 ? o.portions : 0, target = o.target > 0 ? o.target : 0;
+    var mult = o.vat && !o.zero ? 1 + o.rate : 1;
+    var step = Math.max(0.01, o.step || 0);
+    var perPortion = lines.length && portions ? recipe / portions + (o.extra || 0) : null;
+    var exVat = o.price > 0 ? o.price / mult : null;
+    var foodCost = perPortion !== null && exVat !== null ? perPortion / exVat : null;
+    var status = !lines.length ? "No recipe yet" : checks ? "Check recipe" : !portions ? "Add portions" :
+      exVat === null ? "Add a price" : !target ? "Set a target" : foodCost > target ? "Over target" : "OK";
+    return { lines: lines, recipe: recipe, perPortion: perPortion, vatMult: mult, exVat: exVat, foodCost: foodCost,
+             profit: foodCost === null ? null : exVat - perPortion,
+             priceForTarget: perPortion === null || !target ? null : roundUp(round(perPortion * mult / target / step, 6), 0) * step,
+             status: status };
+  }
+
   var Calc = {
     careRunway: careRunway, ihtGifts: ihtGifts, christmas: christmas, nextChristmas: nextChristmas,
     debtPlan: debtPlan, giftAid: giftAid, mileage: mileage, selfAssessment: selfAssessment, taxYear: taxYear,
-    budget503020: budget503020, split503020: SPLIT,
+    budget503020: budget503020, split503020: SPLIT, cakePrice: cakePrice, units: UNITS,
     util: { round: round, roundUp: roundUp, days: days, ymd: ymd, edate: edate, parseDate: parseDate,
             isoDate: isoDate, parseNum: parseNum, nperMonths: nperMonths, pounds: pounds }
   };
@@ -797,8 +838,67 @@
     fill();
   }
 
+  /* ---- cake pricing: one row per ingredient (the pack you buy and how much goes in the cake). An empty row is left
+     out, as an unused row is in the spreadsheet; a row with anything typed in is a recipe line. */
+  function cakeUI(form) {
+    var res = document.querySelector('[data-results="cake"]');
+    var list;
+    function pct(x) { return (Math.round(x * 1000) / 10).toLocaleString("en-GB", { maximumFractionDigits: 1 }) + "%"; }
+    function fill() {
+      var rows = list.rows(), named = [];
+      var lines = [];
+      rows.forEach(function (r, i) {
+        var f = function (k) { return r.querySelector('[data-f="' + k + '"]'); };
+        var any = ["name", "packSize", "packPrice", "qty"].some(function (k) { return f(k).value.trim() !== ""; });
+        if (!any) return;
+        named.push(f("name").value.trim() || "Ingredient " + (i + 1));
+        lines.push({ packSize: readNum(f("packSize")), packUnit: f("packUnit").value,
+                     packPrice: f("packPrice").value.trim() === "" ? null : readNum(f("packPrice")),
+                     qty: readNum(f("qty")), unit: f("unit").value });
+      });
+      var vat = field(form, "vat").value === "yes", zero = field(form, "vatType").value === "zero";
+      var priceTyped = field(form, "price").value.trim() !== "";
+      var r = cakePrice({ lines: lines, portions: num(form, "portions"), extra: num(form, "extra"),
+                          price: priceTyped ? num(form, "price") : null, target: num(form, "target") / 100,
+                          vat: vat, zero: zero, rate: FIG.vat.standard_rate, step: num(form, "step") });
+      show(form, "vatType", vat);
+      out(res, "recipe", money(r.recipe));
+      out(res, "perPortion", r.perPortion === null ? "-" : money(r.perPortion));
+      out(res, "priceForTarget", r.priceForTarget === null ? "-" : money(r.priceForTarget));
+      var slices = num(form, "portions");
+      out(res, "whole", r.priceForTarget === null || !slices ? "-" : money(r.priceForTarget * slices));
+      out(res, "foodCost", r.foodCost === null ? "-" : pct(r.foodCost));
+      out(res, "profit", r.profit === null ? "-" : money(r.profit));
+      show(res, "exVat", vat && !zero && r.exVat !== null);
+      out(res, "exVat", r.exVat === null ? "-" : money(r.exVat));
+      var t = num(form, "target") / 100, s;
+      if (r.status === "No recipe yet") s = "Add an ingredient to cost the cake.";
+      else if (r.status === "Check recipe") s = "Check the ingredients marked below: " + plural(r.lines.filter(function (l) { return l.check !== "OK"; }).length, "line can't", "lines can't") + " be costed yet.";
+      else if (r.status === "Add portions") s = "Type how many slices or pieces it makes.";
+      else if (!(t > 0)) s = "Set a target ingredient cost to see the price to charge.";
+      else if (r.status === "Add a price") s = "Charge at least " + money(r.priceForTarget) + " a slice to keep the ingredients to " + pct(t) + " of the price" + (vat && !zero ? ", VAT included." : ".");
+      else if (r.status === "Over target") s = "At " + money(num(form, "price")) + " a slice the ingredients are " + pct(r.foodCost) + " of the price, over your " + pct(t) + " target. Charge at least " + money(r.priceForTarget) + ".";
+      else s = "At " + money(num(form, "price")) + " a slice the ingredients are " + pct(r.foodCost) + " of the price, within your " + pct(t) + " target.";
+      out(res, "sentence", s);
+      res.querySelector("[data-out='sentence']").setAttribute("data-ok", r.status === "OK" ? "true" : "false");
+      fillTable(res.querySelector("tbody"), r.lines.map(function (l, i) {
+        return [named[i], l.check === "OK" ? money(l.cost) : l.check.replace("Check: ", "")];
+      }));
+      show(res, "table", r.lines.length > 0);
+    }
+    list = rowList(form, "ingredients", 15, fill);
+    [{ name: "Self-raising flour", packSize: "16", packUnit: "kg", packPrice: "14.40", qty: "225", unit: "g" },
+     { name: "Butter", packSize: "2.5", packUnit: "kg", packPrice: "21.00", qty: "225", unit: "g" },
+     { name: "Caster sugar", packSize: "5", packUnit: "kg", packPrice: "6.50", qty: "300", unit: "g" },
+     { name: "Free-range eggs", packSize: "30", packUnit: "each", packPrice: "7.50", qty: "4", unit: "each" },
+     { name: "Lemons", packSize: "20", packUnit: "each", packPrice: "5.60", qty: "2", unit: "each" }].forEach(list.add);
+    form.addEventListener("input", fill);
+    form.addEventListener("change", fill);
+    fill();
+  }
+
   var UI = { care: careUI, iht: ihtUI, christmas: christmasUI, debt: debtUI, giftaid: giftAidUI, mileage: mileageUI,
-             sa: saUI, budget: budgetUI };
+             sa: saUI, budget: budgetUI, cake: cakeUI };
   function start() {
     document.querySelectorAll("form[data-calc]").forEach(function (form) {
       form.addEventListener("submit", function (e) { e.preventDefault(); });

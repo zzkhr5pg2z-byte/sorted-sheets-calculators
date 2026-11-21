@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cake Pricing Calculator UK: What to Charge per Slice | Sorted Sheets</title>
+<meta name="description" content="Free cake pricing calculator (UK). Type your ingredients and pack prices: it works out what the cake costs to make, the cost per slice and the price that keeps ingredients to your target %.">
+<link rel="canonical" href="https://www.sortedsheets.uk/cake-pricing-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sorted Sheets">
+<meta property="og:title" content="How much should I charge for a cake?">
+<meta property="og:description" content="Free calculator: what your cake costs to make from the packs you buy, the cost per slice, and the price per slice that keeps ingredients to your target %.">
+<meta property="og:url" content="https://www.sortedsheets.uk/cake-pricing-calculator/">
+<meta property="og:image" content="https://www.sortedsheets.uk/og/cake-pricing.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#D7EFFF">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/anybody.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<script src="../figures.js" defer></script>
+<script src="../calc.js" defer></script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cake pricing calculator",
+ "url": "https://www.sortedsheets.uk/cake-pricing-calculator/",
+ "description": "Works out what a cake costs to make from the packs you buy, the cost per slice, and the price per slice that keeps ingredients to a target share of the price, with VAT if you're registered.",
+ "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "isAccessibleForFree": true,
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}}
+</script>
+<script src="../site.js" defer></script>
+</head>
+<body>
+<!-- header -->
+<script>document.documentElement.classList.add("js")</script>
+<a class="skip" href="#main">Skip to the main content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../" aria-label="Sorted Sheets home"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#351E28"/><g fill="#F0EEE9"><rect x="12.8" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="26.6" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="40.3" y="12.8" width="10.9" height="10.9" rx="2"/><rect x="12.8" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="40.3" y="26.6" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="12.8" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/><rect x="26.6" y="40.3" width="10.9" height="10.9" rx="2" opacity=".6"/></g><rect x="40.3" y="40.3" width="10.9" height="10.9" rx="2" fill="#FF5C34"/></svg><b>Sorted Sheets</b></a>
+<nav aria-label="Main"><a href="../shop/">Shop</a><a href="../calculators/" aria-current="page">Calculators</a><a href="../custom/">Custom</a><a href="../creators/">Creators</a></nav>
+</div></header>
+<!-- /header -->
+<main id="main" class="wrap">
+<p class="crumbs"><a href="../calculators/">Free calculators</a></p>
+<h1>How much should I charge for a cake?</h1>
+<p class="lead">Type what goes in your cake and what you pay for each pack. The calculator works out what the cake costs to make, the cost per slice, and the least you can charge per slice so the ingredients stay at your target share of the price.</p>
+<noscript><p class="note">This calculator needs JavaScript switched on. The explanation below still works without it.</p></noscript>
+
+<div class="calc">
+<form class="inputs" data-calc="cake" novalidate>
+<fieldset>
+<legend>Your cake</legend>
+<div class="pair">
+<div class="field"><label for="portions">Slices or pieces it makes</label>
+<span class="hint" id="portions-hint">Selling it whole? Type 1.</span>
+<input type="text" inputmode="decimal" id="portions" name="portions" value="10" aria-describedby="portions-hint" autocomplete="off"></div>
+<div class="field"><label for="extra">Extra cost per slice</label>
+<span class="hint" id="extra-hint">Boxes, bags, cake boards, labels.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="extra" name="extra" value="0.05" aria-describedby="extra-hint" autocomplete="off"></div></div>
+</div>
+</fieldset>
+<fieldset>
+<legend>Ingredients</legend>
+<p class="hint">One row for each ingredient: the pack you buy, what it costs, and how much goes in the whole cake. The example is a lemon drizzle with cash and carry prices: change them to yours.</p>
+<div data-rows="ingredients"></div>
+<button type="button" class="btn-add" data-add="ingredients">Add another ingredient</button>
+</fieldset>
+<template id="ingredients-row">
+<div class="row" data-row>
+<div class="row-head"><h3>Ingredient <span data-num>1</span></h3><button type="button" class="btn-remove" data-remove>Remove</button></div>
+<div class="row-grid row-grid--3">
+<div class="field wide"><label data-for="name">Ingredient</label><input type="text" data-f="name" autocomplete="off"></div>
+<div class="field"><label data-for="packSize">Pack size</label><input type="text" inputmode="decimal" data-f="packSize" autocomplete="off"></div>
+<div class="field"><label data-for="packUnit">Pack unit</label><select data-f="packUnit"><option value="g">g</option><option value="kg">kg</option><option value="ml">ml</option><option value="l">l</option><option value="each">each</option></select></div>
+<div class="field"><label data-for="packPrice">Pack price</label><div class="money"><span>£</span><input type="text" inputmode="decimal" data-f="packPrice" autocomplete="off"></div></div>
+<div class="field"><label data-for="qty">Used in cake</label><input type="text" inputmode="decimal" data-f="qty" autocomplete="off"></div>
+<div class="field"><label data-for="unit">Unit used</label><select data-f="unit"><option value="g">g</option><option value="kg">kg</option><option value="ml">ml</option><option value="l">l</option><option value="each">each</option></select></div>
+</div>
+</div>
+</template>
+<fieldset>
+<legend>Your price</legend>
+<div class="pair">
+<div class="field"><label for="target">Target ingredient cost</label>
+<span class="hint" id="target-hint">The share of the price that goes on ingredients. 30% is a common starting point.</span>
+<div class="suffix"><input type="text" inputmode="decimal" id="target" name="target" value="30" aria-describedby="target-hint" autocomplete="off"><span>%</span></div></div>
+<div class="field"><label for="step">Round prices up to the next</label>
+<span class="hint" id="step-hint">5p gives prices like £3.25.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="step" name="step" value="0.05" aria-describedby="step-hint" autocomplete="off"></div></div>
+</div>
+<div class="field"><label for="price">What you charge per slice now <small>(optional)</small></label>
+<span class="hint" id="price-hint">What the customer pays, VAT included if you add it. Shows the ingredient cost % and profit at your price.</span>
+<div class="money"><span>£</span><input type="text" inputmode="decimal" id="price" name="price" value="3.20" aria-describedby="price-hint" autocomplete="off"></div></div>
+<div class="pair">
+<div class="field"><label for="vat">Registered for VAT?</label>
+<span class="hint" id="vat-hint">You must register once your turnover goes over <span data-fig="vat.threshold" data-fmt="money0">£90,000</span> a year.</span>
+<select id="vat" name="vat" aria-describedby="vat-hint"><option value="no">No</option><option value="yes">Yes</option></select></div>
+<div class="field" data-show="vatType" hidden><label for="vatType">VAT on this cake</label>
+<span class="hint" id="vatType-hint">Cakes are usually zero-rated, unless you sell them as catering, such as to eat in.</span>
+<select id="vatType" name="vatType" aria-describedby="vatType-hint"><option value="zero">Zero-rated</option><option value="standard">Standard rate</option></select></div>
+</div>
+</fieldset>
+</form>
+
+<section class="results" data-results="cake" aria-labelledby="cake-results">
+<h2 id="cake-results">Results</h2>
+<p class="big paper"><span class="label">Charge at least, per slice</span><span class="value" data-out="priceForTarget">-</span></p>
+<p class="sentence" aria-live="polite" data-out="sentence"></p>
+<dl class="facts">
+<dt>The cake costs to make</dt><dd data-out="recipe">-</dd>
+<dt>Cost per slice (with the extras)</dt><dd data-out="perPortion">-</dd>
+<dt>Whole cake at that price</dt><dd data-out="whole">-</dd>
+<dt>Ingredient cost at your price</dt><dd data-out="foodCost">-</dd>
+<dt>Profit per slice at your price</dt><dd data-out="profit">-</dd>
+<dt data-show="exVat" hidden>Your price without VAT</dt><dd data-show="exVat" data-out="exVat" hidden>-</dd>
+</dl>
+<div class="table-wrap" tabindex="0" data-show="table">
+<table>
+<caption>What each ingredient costs in this cake</caption>
+<thead><tr><th scope="col">Ingredient</th><th scope="col">Cost</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+<p class="hint">The profit is what's left after ingredients and extras: your time, gas or electric and other costs come out of it.</p>
+</section>
+</div>
+
+<div class="prose">
+<h2>How it works</h2>
+<ul>
+<li><strong>Cost of each ingredient:</strong> the pack price divided by the pack size gives the cost per gram, millilitre or each (a 16 kg sack of flour at £14.40 is 0.09p a gram). Times what goes in the cake gives its cost. Kilograms and litres are turned into grams and millilitres for you.</li>
+<li><strong>Cost per slice:</strong> everything that goes in the cake, divided by the slices it makes, plus the extra cost per slice for boxes and boards.</li>
+<li><strong>Price to charge:</strong> the cost per slice divided by your target ingredient cost. At 30%, a slice that costs 90p to make needs a price of at least £3.00. It's rounded up to the next 5p (or whatever you set), and VAT is added when you're registered and the cake isn't zero-rated.</li>
+</ul>
+<h2>Why a target ingredient cost?</h2>
+<p>Ingredients are only part of what a cake costs you. The rest of the price has to cover your time, the oven, packaging you haven't counted, card fees, and leave you a profit. Bakers and cafés often aim for ingredients to be about 25% to 35% of the price. If you're selling decorated celebration cakes that take hours, your time is the biggest cost, so aim lower, or work out your hours separately and add them on.</p>
+<h2>VAT on cakes</h2>
+<p>Most small home bakers aren't registered for VAT: you only have to register once your turnover goes over <span data-fig="vat.threshold" data-fmt="money0">£90,000</span> in 12 months. If you are registered, cakes are usually zero-rated, including birthday and wedding cakes, so there's no VAT to add. Cakes sold in the course of catering, such as a slice to eat in at a café, are standard-rated at <span data-fig="vat.standard_rate" data-fmt="pct">20%</span>. Check HMRC's guidance if you're not sure which applies.</p>
+<p class="note">For information only. The prices in the example are from the spreadsheet's example and will change: use what you really pay.</p>
+</div>
+
+<aside class="etsy" aria-label="The spreadsheet version">
+<img class="etsy-pic" src="../img/shop/4608558115.jpg" width="800" height="600" alt="Recipe Costing &amp; Menu Pricing: the first photo on its Etsy listing" loading="lazy">
+<div>
+<p>Want to cost every cake and bake you make? The <a data-etsy href="https://sortedsheetsshopuk.etsy.com/listing/4608558115">Recipe Costing &amp; Menu Pricing spreadsheet</a> is <span data-etsy-price>£12</span> on Etsy. <a data-product-link="4608558115" href="../recipe-costing-menu-pricing/">See its photos and what you get</a>. You list your ingredients once, by the pack, and build each recipe from them. It works out this same cost per portion, ingredient cost % and price for target for every item, a recipe card for any one, and which items a price rise would push over your target. For Excel and Google Sheets.</p>
+<p>Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com">SortedSheetsShopUK</a></p>
+</div>
+</aside>
+
+<section class="prose" aria-labelledby="checked">
+<h2 id="checked">Figures checked: <span data-fig="vat.checked_label">21 November 2026</span></h2>
+<p class="sources">Sources:</p>
+<ul class="sources" data-sources="vat_rates vat_register vat_food">
+<li><a href="https://www.gov.uk/vat-rates">VAT rates</a> (gov.uk): The standard rate is 20%; most food is zero-rated (0%).</li>
+<li><a href="https://www.gov.uk/register-for-vat">Register for VAT: when to register</a> (gov.uk): You must register if your taxable turnover for the last 12 months goes over £90,000.</li>
+<li><a href="https://www.gov.uk/guidance/food-products-and-vat-notice-70114">Food products and VAT (VAT Notice 701/14)</a> (gov.uk): Cakes, including birthday and wedding cakes, are zero-rated, except when supplied in the course of catering (VAT Notice 709/1).</li>
+</ul>
+</section>
+</main>
+<!-- footer -->
+<footer class="site-footer"><div class="wrap">
+<p class="shopname">Etsy shop: <a href="https://sortedsheetsshopuk.etsy.com"><span class="stretchy">SortedSheetsShopUK</span></a></p>
+<div class="lines">
+<p>Payments and downloads are handled by Etsy.</p>
+<p>No cookies or tracking unless you accept the Pinterest Tag. The calculators work everything out in your browser: nothing you type into them is sent anywhere.</p>
+<p>For information only. Not financial, legal or tax advice. Figures checked <span data-fig="checked_label">November 2026</span>.</p>
+<p class="made">Made in the UK</p>
+</div>
+<nav aria-label="Footer"><a href="../shop/">Shop</a><a href="../calculators/">Calculators</a><a href="../custom/">Custom</a><a href="../creators/">Creators</a><a href="../about/">About</a><a href="../privacy/">Privacy</a><a href="../privacy/#cookies" data-cookie-settings>Cookie settings</a></nav>
+</div></footer>
+<!-- /footer -->
+</body>
+</html>

@@ -564,6 +564,9 @@ details[open] summary { margin-bottom: 10px; }
 .row-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 0 10px; }
 .row-grid .wide { grid-column: 1 / -1; }
 @media (min-width: 700px) { .row-grid .wide { grid-column: span 2; } }
+.row-grid--3 { grid-template-columns: minmax(0, .85fr) minmax(0, 1fr) minmax(0, 1.25fr); align-items: end; }
+.row-grid--3 .wide { grid-column: 1 / -1; }
+@media (min-width: 700px) { .row-grid--3 .wide { grid-column: 1 / -1; } }
 .row-status { font-size: 14px; color: var(--ink-2); margin: -4px 0 10px; }
 .results h2 { font-size: 26px; margin: 0 0 14px; }
 .big { background: var(--persimmon); border: 2.5px solid var(--ink); border-radius: 16px; padding: 12px 14px; margin: 0 0 14px; box-shadow: 0 5px 0 var(--ink); }
